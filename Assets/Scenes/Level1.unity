@@ -265,14 +265,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fe121d57dd0495640a86781ce7285c43, type: 3}
       propertyPath: m_Name
-      value: Tezgah
+      value: Stand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe121d57dd0495640a86781ce7285c43, type: 3}
---- !u!1001 &362612315
+--- !u!1001 &363298999
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -281,24 +281,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.8725
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.72511
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 117.61077
+      value: 117.23273
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.525
+      value: 0.399
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.444
+      value: 19.922787
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -328,13 +320,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -3887185075125053422, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8714acbefdd07734ebc3f67f83146768, type: 2}
     - target: {fileID: 919132149155446097, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
       propertyPath: m_Name
-      value: Hamur
+      value: Dough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -899,7 +887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e9020ed27d0339f43b242c8f537194d0, type: 3}
       propertyPath: m_Name
-      value: Hamur Makinesi
+      value: Dough Machine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1099,5 +1087,5 @@ SceneRoots:
   - {fileID: 2721314855997163986}
   - {fileID: 1223907803}
   - {fileID: 1766895081}
-  - {fileID: 362612315}
   - {fileID: 89988242}
+  - {fileID: 363298999}
