@@ -282,7 +282,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 117.23273
+      value: 118.529
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -290,7 +290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.922787
+      value: 21.018
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -320,6 +320,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9bef515fba10a69489af0c6888032b65, type: 2}
     - target: {fileID: 919132149155446097, guid: 777d4c6d7a74625488da1639b067715a, type: 3}
       propertyPath: m_Name
       value: Dough
