@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace NOJUMPO
 {
-    public class FlourCollectPoint : MonoBehaviour
+    public class DoughCollectPoint : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
 
