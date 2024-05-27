@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doughPrefab: {fileID: 0}
-  doughCreateInterval: 0
+  doughCreateInterval: 1
 --- !u!1001 &7070534636406355741
 PrefabInstance:
   m_ObjectHideFlags: 0
