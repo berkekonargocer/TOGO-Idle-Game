@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
+using Unity.VisualScripting;
 
 namespace NOJUMPO
 {
@@ -7,9 +9,9 @@ namespace NOJUMPO
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] GameObject doughPrefab;
+        [SerializeField] float doughGiveInterval;
 
-        [SerializeField] float doughCreateInterval;
-
+        bool playerInCollectRange = false;
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {
@@ -27,11 +29,19 @@ namespace NOJUMPO
         void Update() {
         }
 
-        private void OnTriggerEnter(Collider other) {
+        void OnTriggerEnter(Collider other) {
             if (other.CompareTag("Player"))
             {
+                playerInCollectRange = true;
                 Inventory playerInventory = other.GetComponent<Inventory>();
-                
+                GiveDoughTask(playerInventory).Forget();
+            }
+        }
+
+        void OnTriggerExit(Collider other) {
+            if (other.CompareTag("Player"))
+            {
+                playerInCollectRange = false;
             }
         }
 
@@ -43,15 +53,18 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
+
         GameObject GetDough() {
             return Instantiate(doughPrefab, Vector3.zero, Quaternion.identity);
         }
 
-        
-        IEnumerator GetDoughOverTime() {
-            GetDough();
-
-            yield return new WaitForSeconds(doughCreateInterval);
+        async UniTaskVoid GiveDoughTask(Inventory playerInventory) {
+            while (playerInCollectRange && !playerInventory.IsDoughFull)
+            {
+                GameObject dough = GetDough();
+                playerInventory.AddDough(dough);
+                await UniTask.WaitForSeconds(doughGiveInterval);
+            }
         }
     }
 }
