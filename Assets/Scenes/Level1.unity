@@ -426,8 +426,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 125, y: 11, z: 11.85}
+  m_LocalRotation: {x: 0.36134592, y: 0.24451058, z: -0.09878867, w: 0.8943627}
+  m_LocalPosition: {x: 117.54, y: 8.66, z: 16.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -825,14 +825,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932344401}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 125, y: 11, z: 11.85}
+  m_LocalRotation: {x: 0.36134592, y: 0.24451058, z: -0.09878867, w: 0.8943627}
+  m_LocalPosition: {x: 117.54, y: 8.66, z: 16.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1756622841}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 44, y: 30.581, z: 0}
 --- !u!1001 &1928884209404812096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -950,6 +950,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0a3c6efa1fe01144d90c02f3cdf17be5, type: 2}
+    - target: {fileID: 8770654685020078717, guid: 38930b0c9f1162a4b9632fb3c98d7369, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1057,7 +1061,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &2721314855997163994
 BoxCollider:
@@ -1223,8 +1227,8 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1932344403}
-  - {fileID: 35864767}
   - {fileID: 2721314855997163986}
+  - {fileID: 35864767}
   - {fileID: 1223907803}
   - {fileID: 6087823962365397062}
   - {fileID: 1928884209404812096}

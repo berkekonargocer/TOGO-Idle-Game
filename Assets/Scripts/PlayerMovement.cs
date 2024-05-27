@@ -7,10 +7,12 @@ namespace NOJUMPO
     {
         // -------------------------------- FIELDS ---------------------------------
         SplineAnimate _splineAnimate;
+        Animator _animator;
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {
             _splineAnimate = GetComponent<SplineAnimate>();
+            _animator = GetComponent<Animator>();
         }
 
         void OnEnable() {
@@ -24,16 +26,9 @@ namespace NOJUMPO
         }
 
         void Update() {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                _splineAnimate.Play();
-            }
-            if(Input.GetKeyUp(KeyCode.Mouse0))
-            {
-                _splineAnimate.Pause();
-            }
-
+            Move();
         }
+
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
@@ -43,5 +38,18 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
+        void Move() {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                _splineAnimate.Play();
+                _animator.SetBool("isMoving", true);
+
+            }
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                _splineAnimate.Pause();
+                _animator.SetBool("isMoving", false);
+            }
+        }
     }
 }
