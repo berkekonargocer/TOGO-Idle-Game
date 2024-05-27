@@ -132,6 +132,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 029e715a27a8e31489707e974a3c6eca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4654168045403355032}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 029e715a27a8e31489707e974a3c6eca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6408237997586563355}
   m_SourcePrefab: {fileID: 100100000, guid: 029e715a27a8e31489707e974a3c6eca, type: 3}
 --- !u!4 &7068789248123084364 stripped
 Transform:
@@ -164,3 +167,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.019999998, y: 0.019999996, z: 0.010485835}
   m_Center: {x: 9.313295e-18, y: -4.6566476e-18, z: 0.0052429177}
+--- !u!114 &6408237997586563355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7589325078362998006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49c2a161b13c8248a1757fe215dfe1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doughPrefab: {fileID: 303101624911535883, guid: b68e2002bf95d514da6e4f44e42b24b0, type: 3}
+  doughGiveInterval: 1

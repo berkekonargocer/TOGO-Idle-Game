@@ -51,7 +51,7 @@ namespace NOJUMPO
             _doughs.Push(objectToAdd);
         }
 
-        public void RemoveLastDough() {
+        public void RemoveDough() {
             GameObject dough = _doughs.Pop();
             Destroy(dough);
         }
