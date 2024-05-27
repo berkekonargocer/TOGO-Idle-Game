@@ -1021,8 +1021,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7589325078362998006, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6087823962365397064}
   m_SourcePrefab: {fileID: 100100000, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
+--- !u!1 &6087823962365397063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7589325078362998006, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
+  m_PrefabInstance: {fileID: 6087823962365397062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6087823962365397064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6087823962365397063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49c2a161b13c8248a1757fe215dfe1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doughPrefab: {fileID: 0}
+  doughCreateInterval: 0
 --- !u!1001 &7070534636406355741
 PrefabInstance:
   m_ObjectHideFlags: 0

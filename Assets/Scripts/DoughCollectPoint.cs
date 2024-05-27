@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace NOJUMPO
@@ -5,6 +6,9 @@ namespace NOJUMPO
     public class DoughCollectPoint : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
+        [SerializeField] GameObject doughPrefab;
+
+        [SerializeField] float doughCreateInterval;
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
@@ -23,6 +27,14 @@ namespace NOJUMPO
         void Update() {
         }
 
+        private void OnTriggerEnter(Collider other) {
+            if (other.CompareTag("Player"))
+            {
+                Inventory playerInventory = other.GetComponent<Inventory>();
+                
+            }
+        }
+
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
 
@@ -31,5 +43,14 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
+        GameObject GetDough() {
+            return Instantiate(doughPrefab, Vector3.zero, Quaternion.identity);
+        }
+
+        IEnumerator GetDoughOverTime() {
+            GetDough();
+
+            yield return new WaitForSeconds(doughCreateInterval);
+        }
     }
 }
