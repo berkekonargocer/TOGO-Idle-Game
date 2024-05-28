@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 
 namespace NOJUMPO
 {
-    public class DoughCollectPoint : MonoBehaviour
+    public class DoughCollectTrigger : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] GameObject doughPrefab;
