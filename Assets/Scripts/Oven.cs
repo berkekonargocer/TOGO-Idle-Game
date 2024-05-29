@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace NOJUMPO
@@ -31,5 +32,8 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
+        async UniTask<GameObject> MakeBread() {
+
+        }
     }
 }

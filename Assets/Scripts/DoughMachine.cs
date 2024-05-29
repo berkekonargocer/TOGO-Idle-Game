@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace NOJUMPO
@@ -5,31 +6,30 @@ namespace NOJUMPO
     public class DoughMachine : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-
-
-        // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void Awake() {
-        }
-
-        void OnEnable() {
-        }
-
-        void OnDisable() {
-        }
-
-        void Start() {
-        }
-
-        void Update() {
-        }
+        [SerializeField] GameObject doughPrefab;
+        [SerializeField] float doughGiveInterval;
+        public bool PlayerInCollectRange { get; private set; } = false;
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
+        public void SetPlayerCollectRangeState(bool state) {
+            PlayerInCollectRange = state;
+        }
 
 
-        // ------------------------ CUSTOM PROTECTED METHODS -----------------------
+        public async UniTaskVoid GiveDoughTask(Inventory playerInventory) {
+            while (PlayerInCollectRange && !playerInventory.IsDoughFull)
+            {
+                GameObject dough = GetDough();
+                playerInventory.AddDough(dough);
+                await UniTask.WaitForSeconds(doughGiveInterval);
+            }
+        }
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
+        GameObject GetDough() {
+            return Instantiate(doughPrefab, Vector3.zero, Quaternion.identity);
+        }
     }
 }
