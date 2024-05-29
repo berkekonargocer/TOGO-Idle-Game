@@ -15,6 +15,9 @@ namespace NOJUMPO
         public bool IsDoughFull { get { return GetDoughCount >= MaxDoughCount; } }
 
         Stack<GameObject> _breads = new Stack<GameObject>();
+        public int GetBreadCount { get { return _breads.Count; } }
+        public int MaxBreadCount { get; private set; } = 5;
+        public bool IsBreadFull { get { return GetBreadCount >= MaxBreadCount; } }
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
@@ -54,6 +57,22 @@ namespace NOJUMPO
         public void RemoveDough() {
             GameObject dough = _doughs.Pop();
             Destroy(dough);
+        }
+
+        public void AddBread(GameObject objectToAdd) {
+            objectToAdd.transform.SetParent(itemStackPoint);
+
+            if (_doughs.Count == 0)
+            {
+                objectToAdd.transform.localPosition = Vector3.zero;
+            }
+            else
+            {
+                Transform lastBreadTransform = _breads.Peek().transform;
+                objectToAdd.transform.localPosition = new Vector3(0, lastBreadTransform.localPosition.y + itemStackOffset, 0);
+            }
+
+            _breads.Push(objectToAdd);
         }
 
 
