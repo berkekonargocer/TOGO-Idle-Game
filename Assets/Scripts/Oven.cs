@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace NOJUMPO
@@ -7,7 +8,19 @@ namespace NOJUMPO
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] GameObject breadPrefab;
+
+        [SerializeField] Transform bakedBreadsStackPosTransform;
+
+        [SerializeField] float bakedBreadStackOffset = 0.1f;
+
+        [SerializeField] float breadBakeInterval = 1.0f;
+
         public bool PlayerInCollectRange { get; private set; } = false;
+
+        Stack<GameObject> bakedBreads = new Stack<GameObject>();
+        public int DoughCount { get; private set; } = 0;
+
+        const int MAX_BREAD_COUNT = 5;
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
@@ -21,6 +34,7 @@ namespace NOJUMPO
         }
 
         void Start() {
+            BakeBreadTask().Forget();
         }
 
         void Update() {
@@ -33,21 +47,51 @@ namespace NOJUMPO
         }
 
 
-        public async UniTaskVoid GiveBreadTask(Inventory playerInventory) {
-            while (PlayerInCollectRange && !playerInventory.IsBreadFull)
-            {
-                GameObject bread = GetBread();
-                playerInventory.AddBread(bread);
-                await UniTask.Yield();
-            }
-        }
 
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-        GameObject GetBread() {
+        GameObject InstantiateBread() {
             return Instantiate(breadPrefab, Vector3.zero, Quaternion.identity);
+        }
+
+        void BakeBread() {
+            if (bakedBreads.Count < MAX_BREAD_COUNT)
+            {
+                GameObject bread = InstantiateBread();
+                bread.transform.SetParent(bakedBreadsStackPosTransform);
+
+                if (bakedBreads.Count == 0)
+                {
+                    bread.transform.localPosition = Vector3.zero;
+                }
+                else
+                {
+                    bread.transform.localPosition = new Vector3(0, 0, bakedBreads.Peek().transform.position.z + bakedBreadStackOffset);
+                }
+
+                bakedBreads.Push(bread);
+            }
+        }
+
+        async UniTaskVoid BakeBreadTask() {
+
+            //await UniTask.SwitchToThreadPool();
+
+            while (true)
+            {
+                if (DoughCount > 0 && bakedBreads.Count < MAX_BREAD_COUNT)
+                {
+                    await UniTask.WaitForSeconds(breadBakeInterval);
+                    BakeBread();
+                    DoughCount--;
+                }
+                else
+                {
+                    await UniTask.Yield();
+                }
+            }
         }
     }
 }
