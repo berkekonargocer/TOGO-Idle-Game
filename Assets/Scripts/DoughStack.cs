@@ -5,7 +5,7 @@ namespace NOJUMPO
     public class DoughStack : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        public int Count { get; private set; } = 0;
+        public int DoughCount { get; private set; } = 0;
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------

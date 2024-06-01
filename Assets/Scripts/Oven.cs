@@ -17,6 +17,8 @@ namespace NOJUMPO
 
         public bool PlayerInCollectRange { get; private set; } = false;
 
+        DoughStack _doughStack = new DoughStack();
+
         Stack<GameObject> bakedBreads = new Stack<GameObject>();
         public int DoughCount { get; private set; } = 0;
 
@@ -57,22 +59,19 @@ namespace NOJUMPO
         }
 
         void BakeBread() {
-            if (bakedBreads.Count < MAX_BREAD_COUNT)
+            GameObject bread = InstantiateBread();
+            bread.transform.SetParent(bakedBreadsStackPosTransform);
+
+            if (bakedBreads.Count == 0)
             {
-                GameObject bread = InstantiateBread();
-                bread.transform.SetParent(bakedBreadsStackPosTransform);
-
-                if (bakedBreads.Count == 0)
-                {
-                    bread.transform.localPosition = Vector3.zero;
-                }
-                else
-                {
-                    bread.transform.localPosition = new Vector3(0, 0, bakedBreads.Peek().transform.position.z + bakedBreadStackOffset);
-                }
-
-                bakedBreads.Push(bread);
+                bread.transform.localPosition = Vector3.zero;
             }
+            else
+            {
+                bread.transform.localPosition = new Vector3(0, 0, bakedBreads.Peek().transform.position.z + bakedBreadStackOffset);
+            }
+
+            bakedBreads.Push(bread);
         }
 
         async UniTaskVoid BakeBreadTask() {
@@ -81,7 +80,7 @@ namespace NOJUMPO
 
             while (true)
             {
-                if (DoughCount > 0 && bakedBreads.Count < MAX_BREAD_COUNT)
+                if (_doughStack.DoughCount > 0 && bakedBreads.Count < MAX_BREAD_COUNT)
                 {
                     await UniTask.WaitForSeconds(breadBakeInterval);
                     BakeBread();
