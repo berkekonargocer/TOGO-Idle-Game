@@ -10,34 +10,15 @@ namespace NOJUMPO
         [SerializeField] GameObject breadPrefab;
 
         [SerializeField] float breadBakeInterval = 1.0f;
-
-
-        //[SerializeField] DoughDropTrigger doughDropTrigger;
-        //[SerializeField] BreadCollectTrigger breadCollectTrigger;
         [field: SerializeField] public ItemStack DoughStack { get; private set; }
         [field: SerializeField] public ItemStack BreadStack { get; private set; }
-
-        //[SerializeField] ItemStack _breadStack;
-        //[SerializeField] ItemStack _doughStack;
 
         public bool PlayerInCollectRange { get; private set; } = false;
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void Awake() {
-        }
-
-        void OnEnable() {
-        }
-
-        void OnDisable() {
-        }
-
         void Start() {
             BakeBreadTask().Forget();
-        }
-
-        void Update() {
         }
 
 
@@ -45,10 +26,6 @@ namespace NOJUMPO
         public void SetPlayerCollectRangeState(bool state) {
             PlayerInCollectRange = state;
         }
-
-
-
-        // ------------------------ CUSTOM PROTECTED METHODS -----------------------
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------

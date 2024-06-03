@@ -27,23 +27,6 @@ namespace NOJUMPO
         const int MAX_ITEM_COUNT = 5;
 
 
-        // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        //void Awake() {
-        //}
-
-        //void OnEnable() {
-        //}
-
-        //void OnDisable() {
-        //}
-
-        //void Start() {
-        //}
-
-        //void Update() {
-        //}
-
-
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void AddItem(GameObject item) {
             item.transform.SetParent(itemStackPosTransform);
