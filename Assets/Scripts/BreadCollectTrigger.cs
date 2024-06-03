@@ -5,25 +5,31 @@ namespace NOJUMPO
     public class BreadCollectTrigger : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
+        [SerializeField] Oven oven;
 
+        bool _isPlayerInCollectRange = false;
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void Awake() {
+        void OnTriggerEnter(Collider other) {
+            if (other.CompareTag("Player"))
+            {
+                _isPlayerInCollectRange = true;
+                Inventory playerInventory = other.GetComponent<Inventory>();
+
+                while (!oven.BreadStack.IsStackEmpty && !playerInventory.BreadStack.IsStackFull)
+                {
+                    playerInventory.AddBread(oven.BreadStack.TakeItem()); 
+                }
+            }
         }
 
-        void OnEnable() {
+        void OnTriggerExit(Collider other) {
+            if (other.CompareTag("Player"))
+            {
+                _isPlayerInCollectRange = false;
+            }
         }
-
-        void OnDisable() {
-        }
-
-        void Start() {
-        }
-
-        void Update() {
-        }
-
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
 

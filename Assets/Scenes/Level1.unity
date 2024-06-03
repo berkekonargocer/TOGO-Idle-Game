@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd23049c349b26d4997426c85e5143f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oven: {fileID: 7070534636406355744}
 --- !u!1 &505580513 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4834471377260105085, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
@@ -990,7 +991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4194324191156995172, guid: 38930b0c9f1162a4b9632fb3c98d7369, type: 3}
       propertyPath: <BreadStack>k__BackingField.itemStackOffset
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4194324191156995172, guid: 38930b0c9f1162a4b9632fb3c98d7369, type: 3}
       propertyPath: <DoughStack>k__BackingField.itemStackOffset
