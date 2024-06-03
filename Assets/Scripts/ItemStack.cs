@@ -19,6 +19,10 @@ namespace NOJUMPO
 
         [SerializeField] StackDirection stackDirection;
 
+        [SerializeField] bool rotate = false;
+
+        [SerializeField] Vector3 rotation;
+
         Stack<GameObject> _items = new Stack<GameObject>();
         public int GetItemCount { get { return _items.Count; } }
         public bool IsStackFull { get { return _items.Count >= MAX_ITEM_COUNT; } }
@@ -44,6 +48,11 @@ namespace NOJUMPO
                     StackDirection.Z => new Vector3(0, 0, _items.Peek().transform.localPosition.z + itemStackOffset),
                     _ => new Vector3(0, _items.Peek().transform.localPosition.y + itemStackOffset, 0)
                 };
+            }
+
+            if (rotate)
+            {
+                item.transform.localRotation = Quaternion.Euler(rotation);
             }
 
             _items.Push(item);

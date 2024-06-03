@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace NOJUMPO
 {
-    public class DoughDropTrigger : MonoBehaviour
+    public class BreadDropTrigger : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] Oven oven;
+        [SerializeField] Stand stand;
 
         bool _isPlayerInRange = false;
 
@@ -17,9 +17,9 @@ namespace NOJUMPO
                 _isPlayerInRange = true;
                 Inventory playerInventory = other.GetComponent<Inventory>();
 
-                while (!playerInventory.DoughStack.IsStackEmpty && _isPlayerInRange) 
+                while (!playerInventory.BreadStack.IsStackEmpty && _isPlayerInRange)
                 {
-                    oven.DoughStack.AddItem(playerInventory.DoughStack.TakeItem());
+                    stand.BreadStack.AddItem(playerInventory.BreadStack.TakeItem());
                 }
             }
         }
@@ -30,6 +30,7 @@ namespace NOJUMPO
                 _isPlayerInRange = false;
             }
         }
+
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
 

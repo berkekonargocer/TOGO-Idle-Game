@@ -9,8 +9,6 @@ namespace NOJUMPO
 
         Inventory _playerInventory;
 
-        //bool _isPlayerInCollectRange = false;
-
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void OnTriggerEnter(Collider other) {

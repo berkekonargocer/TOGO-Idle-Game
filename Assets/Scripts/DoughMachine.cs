@@ -8,17 +8,17 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] GameObject doughPrefab;
         [SerializeField] float doughGiveInterval;
-        public bool PlayerInCollectRange { get; private set; } = false;
+        public bool IsPlayerInRange { get; private set; } = false;
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void SetPlayerCollectRangeState(bool state) {
-            PlayerInCollectRange = state;
+            IsPlayerInRange = state;
         }
 
 
         public async UniTaskVoid GiveDoughTask(Inventory playerInventory) {
-            while (PlayerInCollectRange && !playerInventory.DoughStack.IsStackFull)
+            while (IsPlayerInRange && !playerInventory.DoughStack.IsStackFull)
             {
                 GameObject dough = GetDough();
                 playerInventory.AddDough(dough);
