@@ -7,27 +7,26 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] Oven oven;
 
-        bool _isPlayerInCollectRange = false;
+        Inventory _playerInventory;
+
+        //bool _isPlayerInCollectRange = false;
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void OnTriggerEnter(Collider other) {
             if (other.CompareTag("Player"))
             {
-                _isPlayerInCollectRange = true;
-                Inventory playerInventory = other.GetComponent<Inventory>();
-
-                while (!oven.BreadStack.IsStackEmpty && !playerInventory.BreadStack.IsStackFull)
-                {
-                    playerInventory.AddBread(oven.BreadStack.TakeItem()); 
-                }
+                _playerInventory = other.GetComponent<Inventory>();
             }
         }
 
-        void OnTriggerExit(Collider other) {
+        private void OnTriggerStay(Collider other) {
             if (other.CompareTag("Player"))
             {
-                _isPlayerInCollectRange = false;
+                if (!oven.BreadStack.IsStackEmpty && !_playerInventory.BreadStack.IsStackFull)
+                {
+                    _playerInventory.AddBread(oven.BreadStack.TakeItem());
+                }
             }
         }
 
