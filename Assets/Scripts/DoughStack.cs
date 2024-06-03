@@ -51,6 +51,11 @@ namespace NOJUMPO
             _doughs.Push(dough);
         }
 
+        public void RemoveDough() {
+            GameObject dough = _doughs.Pop();
+            Destroy(dough);
+        }
+
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
 
 

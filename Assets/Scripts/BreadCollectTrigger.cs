@@ -5,6 +5,7 @@ namespace NOJUMPO
     public class BreadCollectTrigger : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
+        //[field: SerializeField] public ItemStack BreadStack { get; private set; }
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------

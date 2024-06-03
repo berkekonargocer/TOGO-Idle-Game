@@ -18,7 +18,7 @@ namespace NOJUMPO
 
 
         public async UniTaskVoid GiveDoughTask(Inventory playerInventory) {
-            while (PlayerInCollectRange && !playerInventory.IsDoughFull)
+            while (PlayerInCollectRange && !playerInventory.DoughStack.IsStackFull)
             {
                 GameObject dough = GetDough();
                 playerInventory.AddDough(dough);

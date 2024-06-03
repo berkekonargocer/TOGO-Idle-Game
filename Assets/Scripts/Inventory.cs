@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace NOJUMPO
@@ -6,18 +5,22 @@ namespace NOJUMPO
     public class Inventory : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] Transform itemStackPoint;
-        [SerializeField] float itemStackOffset = 0.1f;
 
-        Stack<GameObject> _doughs = new Stack<GameObject>();
-        public int GetDoughCount { get { return _doughs.Count; } }
-        public int MaxDoughCount { get; private set; } = 5;
-        public bool IsDoughFull { get { return GetDoughCount >= MaxDoughCount; } }
+        [field: SerializeField] public ItemStack BreadStack { get; private set; }
+        [field: SerializeField] public ItemStack DoughStack { get; private set; }
 
-        Stack<GameObject> _breads = new Stack<GameObject>();
-        public int GetBreadCount { get { return _breads.Count; } }
-        public int MaxBreadCount { get; private set; } = 5;
-        public bool IsBreadFull { get { return GetBreadCount >= MaxBreadCount; } }
+        //[SerializeField] Transform itemStackPoint;
+        //[SerializeField] float itemStackOffset = 0.1f;
+
+        //Stack<GameObject> _doughs = new Stack<GameObject>();
+        //public int GetDoughCount { get { return _doughs.Count; } }
+        //public int MaxDoughCount { get; private set; } = 5;
+        //public bool IsDoughFull { get { return GetDoughCount >= MaxDoughCount; } }
+
+        //Stack<GameObject> _breads = new Stack<GameObject>();
+        //public int GetBreadCount { get { return _breads.Count; } }
+        //public int MaxBreadCount { get; private set; } = 5;
+        //public bool IsBreadFull { get { return GetBreadCount >= MaxBreadCount; } }
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
@@ -38,41 +41,18 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public void AddDough(GameObject objectToAdd) {
-            objectToAdd.transform.SetParent(itemStackPoint);
-
-            if (_doughs.Count == 0)
+        public void AddDough(GameObject dough) {
+            if (!DoughStack.IsStackFull)
             {
-                objectToAdd.transform.localPosition = Vector3.zero;
+                DoughStack.AddItem(dough); 
             }
-            else
-            {
-                Transform lastDoughTransform = _doughs.Peek().transform;
-                objectToAdd.transform.localPosition = new Vector3(0, lastDoughTransform.localPosition.y + itemStackOffset, 0);
-            }
-
-            _doughs.Push(objectToAdd);
         }
 
-        public void RemoveDough() {
-            GameObject dough = _doughs.Pop();
-            Destroy(dough);
-        }
-
-        public void AddBread(GameObject objectToAdd) {
-            objectToAdd.transform.SetParent(itemStackPoint);
-
-            if (_doughs.Count == 0)
+        public void AddBread(GameObject bread) {
+            if (!BreadStack.IsStackFull)
             {
-                objectToAdd.transform.localPosition = Vector3.zero;
+                BreadStack.AddItem(bread); 
             }
-            else
-            {
-                Transform lastBreadTransform = _breads.Peek().transform;
-                objectToAdd.transform.localPosition = new Vector3(0, lastBreadTransform.localPosition.y + itemStackOffset, 0);
-            }
-
-            _breads.Push(objectToAdd);
         }
 
 

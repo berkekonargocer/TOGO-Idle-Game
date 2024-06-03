@@ -11,11 +11,16 @@ namespace NOJUMPO
 
         [SerializeField] float breadBakeInterval = 1.0f;
 
+
+        //[SerializeField] DoughDropTrigger doughDropTrigger;
+        //[SerializeField] BreadCollectTrigger breadCollectTrigger;
+        [field: SerializeField] public ItemStack DoughStack { get; private set; }
+        [field: SerializeField] public ItemStack BreadStack { get; private set; }
+
+        //[SerializeField] ItemStack _breadStack;
+        //[SerializeField] ItemStack _doughStack;
+
         public bool PlayerInCollectRange { get; private set; } = false;
-
-        DoughStack _doughStack = new DoughStack();
-
-        BreadStack _breadStack = new BreadStack();
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
@@ -57,11 +62,12 @@ namespace NOJUMPO
 
             while (true)
             {
-                if (!_doughStack.IsStackEmpty && !_breadStack.IsStackFull)
+                if (!DoughStack.IsStackEmpty && !BreadStack.IsStackFull)
                 {
                     await UniTask.WaitForSeconds(breadBakeInterval);
+                    DoughStack.RemoveItem();
                     GameObject bread = InstantiateBread();
-                    _breadStack.AddBread(bread);
+                    BreadStack.AddItem(bread);
                 }
                 else
                 {
