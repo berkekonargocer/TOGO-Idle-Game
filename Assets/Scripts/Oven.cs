@@ -9,20 +9,13 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] GameObject breadPrefab;
 
-        [SerializeField] Transform bakedBreadsStackPosTransform;
-
-        [SerializeField] float bakedBreadStackOffset = 0.1f;
-
         [SerializeField] float breadBakeInterval = 1.0f;
 
         public bool PlayerInCollectRange { get; private set; } = false;
 
         DoughStack _doughStack = new DoughStack();
 
-        Stack<GameObject> bakedBreads = new Stack<GameObject>();
-        public int DoughCount { get; private set; } = 0;
-
-        const int MAX_BREAD_COUNT = 5;
+        BreadStack _breadStack = new BreadStack();
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
@@ -58,33 +51,17 @@ namespace NOJUMPO
             return Instantiate(breadPrefab, Vector3.zero, Quaternion.identity);
         }
 
-        void BakeBread() {
-            GameObject bread = InstantiateBread();
-            bread.transform.SetParent(bakedBreadsStackPosTransform);
-
-            if (bakedBreads.Count == 0)
-            {
-                bread.transform.localPosition = Vector3.zero;
-            }
-            else
-            {
-                bread.transform.localPosition = new Vector3(0, 0, bakedBreads.Peek().transform.position.z + bakedBreadStackOffset);
-            }
-
-            bakedBreads.Push(bread);
-        }
-
         async UniTaskVoid BakeBreadTask() {
 
             //await UniTask.SwitchToThreadPool();
 
             while (true)
             {
-                if (_doughStack.DoughCount > 0 && bakedBreads.Count < MAX_BREAD_COUNT)
+                if (!_doughStack.IsStackEmpty && !_breadStack.IsStackFull)
                 {
                     await UniTask.WaitForSeconds(breadBakeInterval);
-                    BakeBread();
-                    DoughCount--;
+                    GameObject bread = InstantiateBread();
+                    _breadStack.AddBread(bread);
                 }
                 else
                 {
