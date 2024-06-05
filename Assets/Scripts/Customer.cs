@@ -6,16 +6,16 @@ namespace NOJUMPO
     public class Customer : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] Transform buyAreaTransform;
-        [SerializeField] Transform idleAreaTransform;
+        [SerializeField] protected Transform buyAreaTransform;
+        [SerializeField] protected Transform idleAreaTransform;
 
-        [SerializeField] bool isBuying;
+        [SerializeField] protected bool isBuying;
 
-        NavMeshAgent _customerAgent;
+        protected NavMeshAgent _customerAgent;
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void Awake() {
+        protected virtual void Awake() {
             _customerAgent = GetComponent<NavMeshAgent>();
         }
 
@@ -26,7 +26,7 @@ namespace NOJUMPO
         }
 
         void Start() {
-            _customerAgent.SetDestination(buyAreaTransform.position);
+            //_customerAgent.SetDestination(buyAreaTransform.position);
         }
 
         void Update() {

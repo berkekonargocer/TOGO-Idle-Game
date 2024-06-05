@@ -2,21 +2,19 @@ using UnityEngine;
 
 namespace NOJUMPO
 {
-    [DisallowMultipleComponent]
-    public class CustomerStateMachine : Customer
+    public class CustomerStateFactory : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
+        [SerializeField] public CustomerState Idle { get; private set; }
+        [SerializeField] public CustomerState InQueue { get; private set; }
+        [SerializeField] public CustomerState WaitingProduct { get; private set; }
+        [SerializeField] public CustomerState Buying { get; private set; }
+        [SerializeField] public CustomerState Bought { get; private set; }
 
-        [SerializeField] CustomerState bootUpState;
 
-        [Space]
-        [SerializeField] string stateName = "";
 
-        
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        protected override void Awake() {
-            base.Awake();
-
+        void Awake() {
         }
 
         void OnEnable() {
