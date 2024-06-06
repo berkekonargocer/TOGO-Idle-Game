@@ -16,7 +16,7 @@ namespace NOJUMPO
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         protected virtual void Awake() {
-            _customerAgent = GetComponent<NavMeshAgent>();
+            SetComponents();
         }
 
         void OnEnable() {
@@ -45,7 +45,9 @@ namespace NOJUMPO
 
 
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
-
+        protected virtual void SetComponents() {
+            _customerAgent = GetComponent<NavMeshAgent>();
+        }
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
     }

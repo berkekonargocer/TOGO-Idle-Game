@@ -13,32 +13,66 @@ namespace NOJUMPO
 
         [SerializeField] float movementSpeed;
 
-        
+        CustomerStateFactory _stateFactory;
+
+        CustomerState _currentState;
+        CustomerState _previousState;
+
+
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         protected override void Awake() {
-            base.Awake();
-
-        }
-
-        void OnEnable() {
-        }
-
-        void OnDisable() {
+            SetComponents();
+            InitializeStates();
         }
 
         void Start() {
+            BootUpStateMachine();
         }
 
         void Update() {
+            _currentState.Tick();
+        }
+
+        void FixedUpdate() {
+            _currentState.FixedTick();
         }
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
+        public void ChangeState(CustomerState newState) {
+            _currentState.OnExitState();
+
+            _previousState = _currentState;
+            _currentState = newState;
+            _currentState.OnEnterState();
+
+            DisplayState();
+        }
+
+        public void TransitionToPreviousState() {
+            ChangeState(_previousState);
+        }
 
 
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
+        protected override void SetComponents() {
+            base.SetComponents();
+            _stateFactory = GetComponentInChildren<CustomerStateFactory>();
+        }
+
+        protected virtual void InitializeStates() {
+            _stateFactory.InitializeStates(this);
+        }
+
+        protected void DisplayState() {
+            stateName = _currentState.GetType().ToString();
+        }
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
+        void BootUpStateMachine() {
+            _currentState = bootUpState;
+            _currentState.OnEnterState();
+        }
     }
 }
