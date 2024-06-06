@@ -12,30 +12,14 @@ namespace NOJUMPO
         [SerializeField] public CustomerState Bought { get; private set; }
 
 
-
-        // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void Awake() {
-        }
-
-        void OnEnable() {
-        }
-
-        void OnDisable() {
-        }
-
-        void Start() {
-        }
-
-        void Update() {
-        }
-
-
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
+        public void InitializeStates(CustomerStateMachine stateMachine) {
+            CustomerState[] customerStates = GetComponents<CustomerState>();
 
-
-        // ------------------------ CUSTOM PROTECTED METHODS -----------------------
-
-
-        // ------------------------- CUSTOM PRIVATE METHODS ------------------------
+            for (int i = customerStates.Length - 1; i >= 0; i--)
+            {
+                customerStates[i].Initialize(stateMachine);
+            }
+        }
     }
 }

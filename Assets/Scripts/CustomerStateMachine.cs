@@ -6,11 +6,12 @@ namespace NOJUMPO
     public class CustomerStateMachine : Customer
     {
         // -------------------------------- FIELDS ---------------------------------
-
         [SerializeField] CustomerState bootUpState;
 
         [Space]
         [SerializeField] string stateName = "";
+
+        [SerializeField] float movementSpeed;
 
         
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
