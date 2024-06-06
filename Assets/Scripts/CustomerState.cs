@@ -10,6 +10,7 @@ namespace NOJUMPO
 
         public UnityEvent OnEnter, OnExit;
 
+
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public virtual void Initialize(CustomerStateMachine stateMachine) {
             _stateMachine = stateMachine;

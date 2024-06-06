@@ -6,7 +6,6 @@ namespace NOJUMPO
     public class Customer : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] protected Transform buyAreaTransform;
         [SerializeField] protected Transform idleAreaTransform;
 
         [SerializeField] protected bool isBuying;
@@ -42,7 +41,9 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-
+        public void SetDestination(Vector3 destination) {
+            _customerAgent.SetDestination(destination);
+        }
 
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
         protected virtual void SetComponents() {

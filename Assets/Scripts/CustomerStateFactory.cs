@@ -5,11 +5,11 @@ namespace NOJUMPO
     public class CustomerStateFactory : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] public CustomerState Idle { get; private set; }
-        [SerializeField] public CustomerState InQueue { get; private set; }
-        [SerializeField] public CustomerState WaitingProduct { get; private set; }
-        [SerializeField] public CustomerState Buying { get; private set; }
-        [SerializeField] public CustomerState Bought { get; private set; }
+        [field: SerializeField] public CustomerState Idle { get; private set; }
+        [field: SerializeField] public CustomerState InQueue { get; private set; }
+        [field: SerializeField] public CustomerState WaitingProduct { get; private set; }
+        [field: SerializeField] public CustomerState Buying { get; private set; }
+        [field: SerializeField] public CustomerState Bought { get; private set; }
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
