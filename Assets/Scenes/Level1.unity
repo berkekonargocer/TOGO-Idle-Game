@@ -373,15 +373,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3414760371983354619, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3414760371983354619, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_Acceleration
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3414760371983354619, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_StoppingDistance
-      value: 0.55
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4926399902937936147, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_Name
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958184840}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa848b7c603fb9c4b91b17205b43d49d, type: 3}
   m_Name: 
@@ -821,19 +821,6 @@ MonoBehaviour:
     stackDirection: 1
     rotate: 1
     rotation: {x: -90, y: 0, z: -90}
---- !u!114 &996218044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996218039}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad34fdc281376cc499993f889676c1fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buyAreaTransform: {fileID: 835364354}
 --- !u!114 &996218045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,6 +840,7 @@ MonoBehaviour:
   - {x: 135.25, y: 0, z: 23.25}
   waiters:
   - {fileID: 1555176600}
+  - {fileID: 958184841}
   - {fileID: 898294404}
   - {fileID: 1664217834}
 --- !u!1001 &1169839632
@@ -873,7 +861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3414760371983354619, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_StoppingDistance
-      value: 0.55
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4926399902937936147, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_Name
@@ -881,7 +869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4926399902937936147, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5698678816567864233, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -949,7 +937,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958184840}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc0a5e22d3f91b14a9620c086614db41, type: 3}
   m_Name: 
@@ -1533,15 +1521,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3414760371983354619, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3414760371983354619, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_Acceleration
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3414760371983354619, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_StoppingDistance
-      value: 0.55
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4926399902937936147, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_Name
@@ -1605,15 +1593,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3414760371983354619, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3414760371983354619, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_Acceleration
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3414760371983354619, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_StoppingDistance
-      value: 0.55
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4926399902937936147, guid: 5869706e700a83945a246f86a299f9d1, type: 3}
       propertyPath: m_Name
@@ -1772,9 +1760,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7880239436443854241, guid: 656974602dffce5439d8eb0b6565cf5e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 996218043}
-    - targetCorrespondingSourceObject: {fileID: 7880239436443854241, guid: 656974602dffce5439d8eb0b6565cf5e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 996218044}
     - targetCorrespondingSourceObject: {fileID: 7880239436443854241, guid: 656974602dffce5439d8eb0b6565cf5e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 996218045}

@@ -1,15 +1,20 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace NOJUMPO
 {
-    public class WaitingQueue : MonoBehaviour {
+    [Serializable]
+    public class WaitingQueue : MonoBehaviour
+    {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] List<Vector3> _waitingPositions = new List<Vector3>();
         List<IQueueWaiter> _waitersList = new List<IQueueWaiter>();
 
-
         [SerializeField] Customer[] waiters;
+
+        public event Action OnQueueUpdated;
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {
@@ -27,6 +32,8 @@ namespace NOJUMPO
             {
                 AddWaiter(waiters[i]);
             }
+
+            StartCoroutine(RemoveTest());
         }
 
         void Update() {
@@ -41,14 +48,35 @@ namespace NOJUMPO
             _waitersList.Add(waiter);
             Vector3 waitPosition = _waitingPositions[_waitersList.Count - 1];
             waiter.MoveTo(waitPosition);
+            OnQueueUpdated?.Invoke();
         }
 
         public void RemoveWaiter(IQueueWaiter waiter) {
             _waitersList.Remove(waiter);
+            UpdateWaiterPositions();
+            OnQueueUpdated?.Invoke();
         }
 
         public IQueueWaiter GetWaiter(int index) {
             return _waitersList[index];
+        }
+
+        public IQueueWaiter GetFirstInQueue() {
+            if (_waitersList.Count == 0)
+                return null;
+
+            return _waitersList[0];
+        }
+
+        public IQueueWaiter RemoveFirst() {
+            if (_waitersList.Count == 0)
+                return null;
+
+            IQueueWaiter waiter = _waitersList[0];
+            _waitersList.RemoveAt(0);
+            UpdateWaiterPositions();
+            OnQueueUpdated?.Invoke();
+            return waiter;
         }
 
         public int WaiterCount() {
@@ -59,9 +87,23 @@ namespace NOJUMPO
             return _waitersList.Count < _waitingPositions.Count;
         }
 
+
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
+        void UpdateWaiterPositions() {
+            for (int i = 0; i < _waitersList.Count; i++)
+            {
+                _waitersList[i].MoveTo(_waitingPositions[i]);
+            }
+        }
+
+        IEnumerator RemoveTest() {
+            yield return new WaitForSeconds(4.0f);
+
+            IQueueWaiter waiter = RemoveFirst();
+            waiter.MoveTo(new Vector3(150, 0, 0));
+        }
     }
 }
