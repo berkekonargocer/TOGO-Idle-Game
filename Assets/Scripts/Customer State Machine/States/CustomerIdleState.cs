@@ -1,4 +1,7 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace NOJUMPO
 {
@@ -12,6 +15,7 @@ namespace NOJUMPO
         }
 
         void OnEnable() {
+
         }
 
         void OnDisable() {
@@ -27,7 +31,7 @@ namespace NOJUMPO
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public override void OnEnterState() {
             base.OnEnterState();
-            GetInQueue();
+            StartCoroutine(ChangeToQueueState());
         }
 
         public override void Tick() {
@@ -41,10 +45,14 @@ namespace NOJUMPO
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
 
 
+
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-        void GetInQueue() {
-            _stateMachine.SetDestination(BreadQueue.Instance.GetQueuePosition());
-            BreadQueue.Instance.GetInQueue(_stateMachine);
+        IEnumerator ChangeToQueueState() {
+            int randomNumber = Random.Range(5, 15);
+
+            yield return new WaitForSeconds(randomNumber);
+
+            _stateMachine.ChangeState(_stateMachine.StateFactory.InQueue);
         }
     }
 }

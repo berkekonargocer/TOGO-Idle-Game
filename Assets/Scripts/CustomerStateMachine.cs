@@ -13,7 +13,7 @@ namespace NOJUMPO
 
         [SerializeField] float movementSpeed;
 
-        CustomerStateFactory _stateFactory;
+        public CustomerStateFactory StateFactory { get; private set; }
 
         CustomerState _currentState;
         CustomerState _previousState;
@@ -57,11 +57,11 @@ namespace NOJUMPO
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
         protected override void SetComponents() {
             base.SetComponents();
-            _stateFactory = GetComponentInChildren<CustomerStateFactory>();
+            StateFactory = GetComponentInChildren<CustomerStateFactory>();
         }
 
         protected virtual void InitializeStates() {
-            _stateFactory.InitializeStates(this);
+            StateFactory.InitializeStates(this);
         }
 
         protected void DisplayState() {

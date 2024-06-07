@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace NOJUMPO
         
         Queue<CustomerStateMachine> _customerQueue = new Queue<CustomerStateMachine>();
 
+        public event Action OnQueueUpdated;
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {
@@ -34,10 +36,12 @@ namespace NOJUMPO
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void GetInQueue(CustomerStateMachine customer) {
             _customerQueue.Enqueue(customer);
+            OnQueueUpdated?.Invoke();
         }
 
         public void Dequeue() {
             _customerQueue.Dequeue();
+            OnQueueUpdated?.Invoke();
         }
 
         public CustomerStateMachine GetLastCustomer() {

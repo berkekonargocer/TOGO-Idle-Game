@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace NOJUMPO
 {
-    public class CustomerInQueueState : CustomerState
+    public abstract class QueueWaiter : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
 
@@ -25,31 +25,11 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public override void OnEnterState() {
-            base.OnEnterState();
-            GetInQueue();
-        }
-
-        public override void Tick() {
-            
-        }
-
-        public override void FixedTick() {
-            throw new System.NotImplementedException();
-        }
-
+        public abstract void MoveTo(Vector3 destination);
 
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-        void GetInQueue() {
-            BreadQueue.Instance.GetInQueue(_stateMachine);
-        }
-
-        void MoveInQueue() {
-            _stateMachine.SetDestination(BreadQueue.Instance.GetQueuePosition());
-        }
-
     }
 }
