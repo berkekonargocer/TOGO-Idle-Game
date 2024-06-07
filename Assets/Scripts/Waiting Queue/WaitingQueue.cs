@@ -53,7 +53,7 @@ namespace NOJUMPO
 
         public void RemoveWaiter(IQueueWaiter waiter) {
             _waitersList.Remove(waiter);
-            UpdateWaiterPositions();
+            RelocateAllWaiters();
             OnQueueUpdated?.Invoke();
         }
 
@@ -74,7 +74,7 @@ namespace NOJUMPO
 
             IQueueWaiter waiter = _waitersList[0];
             _waitersList.RemoveAt(0);
-            UpdateWaiterPositions();
+            RelocateAllWaiters();
             OnQueueUpdated?.Invoke();
             return waiter;
         }
@@ -92,7 +92,7 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-        void UpdateWaiterPositions() {
+        void RelocateAllWaiters() {
             for (int i = 0; i < _waitersList.Count; i++)
             {
                 _waitersList[i].MoveTo(_waitingPositions[i]);
@@ -100,10 +100,13 @@ namespace NOJUMPO
         }
 
         IEnumerator RemoveTest() {
-            yield return new WaitForSeconds(4.0f);
+            while (_waitersList.Count > 0)
+            {
+                yield return new WaitForSeconds(5.0f);
 
-            IQueueWaiter waiter = RemoveFirst();
-            waiter.MoveTo(new Vector3(150, 0, 0));
+                IQueueWaiter waiter = RemoveFirst();
+                waiter.MoveTo(new Vector3(150, 0, 0)); 
+            }
         }
     }
 }

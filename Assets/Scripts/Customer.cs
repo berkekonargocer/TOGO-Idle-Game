@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,7 +9,7 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] protected Transform idleAreaTransform;
 
-        [SerializeField] protected bool isBuying;
+        [SerializeField] Animator animator;
 
         protected NavMeshAgent _customerAgent;
 
@@ -29,31 +30,31 @@ namespace NOJUMPO
         }
 
         void Update() {
-            //if (isBuying && Vector3.Distance(transform.position, buyAreaTransform.position) > 0.3f)
-            //{
-            //    _customerAgent.SetDestination(buyAreaTransform.position);
-            //}
-            //else if (!isBuying && Vector3.Distance(transform.position, idleAreaTransform.position) > 0.3f)
-            //{
-            //    _customerAgent.SetDestination(idleAreaTransform.position);
-            //}
+
         }
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public void SetDestination(Vector3 destination) {
-            _customerAgent.SetDestination(destination);
+        public void MoveTo(Vector3 destination) {
+            MoveTask(destination).Forget();
         }
+
 
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
         protected virtual void SetComponents() {
             _customerAgent = GetComponent<NavMeshAgent>();
         }
 
-        public void MoveTo(Vector3 destination) {
-            _customerAgent.SetDestination(destination);
-        }
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
+        async UniTaskVoid MoveTask(Vector3 destination) {
+            _customerAgent.SetDestination(destination);
+            animator.SetBool("IsWalking", true);
+
+            await UniTask.WaitUntil(() => Vector3.Distance(transform.position, destination) < 0.2f);
+
+            animator.SetBool("IsWalking", false);
+        }
+
     }
 }
