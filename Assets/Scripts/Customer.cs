@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace NOJUMPO
 {
-    public class Customer : MonoBehaviour
+    public class Customer : MonoBehaviour, IQueueWaiter
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] protected Transform idleAreaTransform;
@@ -25,7 +25,7 @@ namespace NOJUMPO
         }
 
         void Start() {
-            //_customerAgent.SetDestination(buyAreaTransform.position);
+
         }
 
         void Update() {
@@ -48,6 +48,10 @@ namespace NOJUMPO
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
         protected virtual void SetComponents() {
             _customerAgent = GetComponent<NavMeshAgent>();
+        }
+
+        public void MoveTo(Vector3 destination) {
+            _customerAgent.SetDestination(destination);
         }
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------

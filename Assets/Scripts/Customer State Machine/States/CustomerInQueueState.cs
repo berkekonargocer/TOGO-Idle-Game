@@ -44,11 +44,11 @@ namespace NOJUMPO
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void GetInQueue() {
-            BreadQueue.Instance.GetInQueue(_stateMachine);
+            
         }
 
         void MoveInQueue() {
-            _stateMachine.SetDestination(BreadQueue.Instance.GetQueuePosition());
+            
         }
 
     }
