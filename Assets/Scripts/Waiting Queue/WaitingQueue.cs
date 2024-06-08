@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,30 +22,6 @@ namespace NOJUMPO
         public WaitingQueue(List<Vector3> waitingPositions) {
             _waitingPositions = waitingPositions;
         }
-
-
-        // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        //void Awake() {
-
-        //}
-
-        //void OnEnable() {
-        //}
-
-        //void OnDisable() {
-        //}
-
-        //void Start() {
-        //    for (int i = 0; i < waiters.Length; i++)
-        //    {
-        //        AddWaiter(waiters[i]);
-        //    }
-
-        //    StartCoroutine(RemoveTest());
-        //}
-
-        //void Update() {
-        //}
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
@@ -97,9 +72,6 @@ namespace NOJUMPO
         }
 
 
-        // ------------------------ CUSTOM PROTECTED METHODS -----------------------
-
-
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void RelocateAllWaiters() {
             for (int i = 0; i < _waitersList.Count; i++)
@@ -107,15 +79,5 @@ namespace NOJUMPO
                 _waitersList[i].MoveTo(_waitingPositions[i]);
             }
         }
-
-        //IEnumerator RemoveTest() {
-        //    while (_waitersList.Count > 0)
-        //    {
-        //        yield return new WaitForSeconds(5.0f);
-
-        //        IQueueWaiter waiter = RemoveFirst();
-        //        waiter.MoveTo(new Vector3(150, 0, 0)); 
-        //    }
-        //}
     }
 }

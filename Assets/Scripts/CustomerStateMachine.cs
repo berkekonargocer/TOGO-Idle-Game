@@ -11,8 +11,6 @@ namespace NOJUMPO
         [Space]
         [SerializeField] string stateName = "";
 
-        [SerializeField] float movementSpeed;
-
         public CustomerStateFactory StateFactory { get; private set; }
 
         CustomerState _currentState;
