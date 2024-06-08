@@ -51,7 +51,7 @@ namespace NOJUMPO
             {
                 Quaternion rotation = Quaternion.LookRotation(direction);
                 Vector3 newRotation = new Vector3(transform.rotation.x, rotation.eulerAngles.y, transform.rotation.z);
-                transform.DORotate(newRotation, 0.2f);
+                transform.DORotate(newRotation, 0.75f);
             }
         }
 
