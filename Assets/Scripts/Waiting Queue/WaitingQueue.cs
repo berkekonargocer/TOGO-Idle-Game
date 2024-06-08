@@ -29,9 +29,9 @@ namespace NOJUMPO
             if (!CanAddWaiter())
                 return;
 
+            Vector3 waitPosition = _waitingPositions[_waitersList.Count];
+            waiter.MoveTo(waitPosition, _waitersList.Count > 0 ? _waitingPositions[_waitersList.Count - 1] : null);
             _waitersList.Add(waiter);
-            Vector3 waitPosition = _waitingPositions[_waitersList.Count - 1];
-            waiter.MoveTo(waitPosition);
             OnQueueUpdated?.Invoke();
         }
 
@@ -76,7 +76,7 @@ namespace NOJUMPO
         void RelocateAllWaiters() {
             for (int i = 0; i < _waitersList.Count; i++)
             {
-                _waitersList[i].MoveTo(_waitingPositions[i]);
+                _waitersList[i].MoveTo(_waitingPositions[i], _waitersList.Count > 0 ? _waitingPositions[_waitersList.Count - 1] : null);
             }
         }
     }
