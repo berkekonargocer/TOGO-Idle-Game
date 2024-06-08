@@ -6,38 +6,47 @@ using UnityEngine;
 namespace NOJUMPO
 {
     [Serializable]
-    public class WaitingQueue : MonoBehaviour
+    public class WaitingQueue
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] List<Vector3> _waitingPositions = new List<Vector3>();
         List<IQueueWaiter> _waitersList = new List<IQueueWaiter>();
 
-        [SerializeField] Customer[] waiters;
-
         public event Action OnQueueUpdated;
 
+
+
+        public WaitingQueue() {
+
+        }
+
+        public WaitingQueue(List<Vector3> waitingPositions) {
+            _waitingPositions = waitingPositions;
+        }
+
+
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void Awake() {
+        //void Awake() {
 
-        }
+        //}
 
-        void OnEnable() {
-        }
+        //void OnEnable() {
+        //}
 
-        void OnDisable() {
-        }
+        //void OnDisable() {
+        //}
 
-        void Start() {
-            for (int i = 0; i < waiters.Length; i++)
-            {
-                AddWaiter(waiters[i]);
-            }
+        //void Start() {
+        //    for (int i = 0; i < waiters.Length; i++)
+        //    {
+        //        AddWaiter(waiters[i]);
+        //    }
 
-            StartCoroutine(RemoveTest());
-        }
+        //    StartCoroutine(RemoveTest());
+        //}
 
-        void Update() {
-        }
+        //void Update() {
+        //}
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
@@ -99,14 +108,14 @@ namespace NOJUMPO
             }
         }
 
-        IEnumerator RemoveTest() {
-            while (_waitersList.Count > 0)
-            {
-                yield return new WaitForSeconds(5.0f);
+        //IEnumerator RemoveTest() {
+        //    while (_waitersList.Count > 0)
+        //    {
+        //        yield return new WaitForSeconds(5.0f);
 
-                IQueueWaiter waiter = RemoveFirst();
-                waiter.MoveTo(new Vector3(150, 0, 0)); 
-            }
-        }
+        //        IQueueWaiter waiter = RemoveFirst();
+        //        waiter.MoveTo(new Vector3(150, 0, 0)); 
+        //    }
+        //}
     }
 }

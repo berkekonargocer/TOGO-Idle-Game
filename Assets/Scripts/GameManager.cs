@@ -2,13 +2,15 @@ using UnityEngine;
 
 namespace NOJUMPO
 {
-    public class CustomerInQueueState : CustomerState
+    public class GameManager : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-
+        public static GameManager Instance;
+        public WaitingQueue BreadCustomerQueue = new WaitingQueue();
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {
+            InitializeSingleton();
         }
 
         void OnEnable() {
@@ -25,26 +27,22 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public override void OnEnterState() {
-            base.OnEnterState();
-            GetInQueue();
-        }
-
-        public override void Tick() {
-            
-        }
-
-        public override void FixedTick() {
-
-        }
 
 
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-        void GetInQueue() {
-            GameManager.Instance.BreadCustomerQueue.AddWaiter(_stateMachine);
+        void InitializeSingleton() {
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

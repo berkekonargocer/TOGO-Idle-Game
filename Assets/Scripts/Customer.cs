@@ -9,7 +9,7 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] protected Transform idleAreaTransform;
 
-        [SerializeField] Animator animator;
+        [SerializeField] protected Animator animator;
 
         protected NavMeshAgent _customerAgent;
 
@@ -49,11 +49,11 @@ namespace NOJUMPO
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         async UniTaskVoid MoveTask(Vector3 destination) {
             _customerAgent.SetDestination(destination);
-            animator.SetBool("IsWalking", true);
+            //animator.SetBool("IsWalking", true);
 
-            await UniTask.WaitUntil(() => Vector3.Distance(transform.position, destination) < 0.2f);
-
-            animator.SetBool("IsWalking", false);
+            await UniTask.WaitUntil(() => Vector3.Distance(transform.position, destination) < 0.9f);
+            Debug.Log("In Queue");
+            //animator.SetBool("IsWalking", false);
         }
 
     }
