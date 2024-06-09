@@ -13,14 +13,15 @@ namespace NOJUMPO
 
         public event Action OnQueueUpdated;
 
-
+        event Action<IQueueWaiter> WaiterOnMoveCompleted;
 
         public WaitingQueue() {
-
+            WaiterOnMoveCompleted = WaiterOnMoveComplete;
         }
 
         public WaitingQueue(List<Vector3> waitingPositions) {
             _waitingPositions = waitingPositions;
+            WaiterOnMoveCompleted = WaiterOnMoveComplete;
         }
 
 
@@ -30,7 +31,7 @@ namespace NOJUMPO
                 return;
 
             Vector3 waitPosition = _waitingPositions[_waitersList.Count];
-            waiter.MoveTo(waitPosition, _waitersList.Count > 0 ? _waitingPositions[_waitersList.Count - 1] : null);
+            waiter.MoveTo(waitPosition, WaiterOnMoveCompleted);
             _waitersList.Add(waiter);
             OnQueueUpdated?.Invoke();
         }
@@ -76,8 +77,18 @@ namespace NOJUMPO
         void RelocateAllWaiters() {
             for (int i = 0; i < _waitersList.Count; i++)
             {
-                _waitersList[i].MoveTo(_waitingPositions[i], _waitersList.Count > 0 ? _waitingPositions[_waitersList.Count - 1] : null);
+                _waitersList[i].MoveTo(_waitingPositions[i], WaiterOnMoveCompleted);
             }
+        }
+
+        void WaiterOnMoveComplete(IQueueWaiter waiter) {
+            if (waiter == _waitersList[0])
+            {
+                waiter.OnArrivedAtFrontOfQueue();
+                return;
+            }
+
+            waiter.LookAt(_waitingPositions[_waitersList.IndexOf(waiter) - 1]);
         }
     }
 }

@@ -51,6 +51,10 @@ namespace NOJUMPO
             ChangeState(_previousState);
         }
 
+        public override void OnArrivedAtFrontOfQueue() {
+            //ChangeState(StateFactory.)
+            Debug.Log("EKMEEMI VER");
+        }
 
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
         protected override void SetComponents() {
