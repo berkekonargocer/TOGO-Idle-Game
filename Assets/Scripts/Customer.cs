@@ -65,17 +65,16 @@ namespace NOJUMPO
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         async UniTaskVoid MoveTask(Vector3 destination, Vector3? lookAt = null) {
             _customerAgent.SetDestination(destination);
-            //animator.SetBool("IsWalking", true);
+            animator.SetBool("IsWalking", true);
 
-            await UniTask.WaitUntil(() => Vector3.Distance(transform.position, destination) < 1.4f);
+            await UniTask.WaitUntil(() => Vector3.Distance(transform.position, destination) < 0.25f);
 
             if (lookAt.HasValue)
             {
                 LookAt(lookAt.Value);
             }
 
-            Debug.Log("In Queue");
-            //animator.SetBool("IsWalking", false);
+            animator.SetBool("IsWalking", false);
         }
 
     }
