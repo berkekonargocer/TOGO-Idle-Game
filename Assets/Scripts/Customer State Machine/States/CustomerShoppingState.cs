@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace NOJUMPO
 {
-    public class CustomerWaitingToBuyState : MonoBehaviour
+    public class CustomerShoppingState : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
 
