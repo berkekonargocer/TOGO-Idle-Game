@@ -7,8 +7,7 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         [field: SerializeField] public CustomerState Idle { get; private set; }
         [field: SerializeField] public CustomerState InQueue { get; private set; }
-        [field: SerializeField] public CustomerState WaitingProduct { get; private set; }
-        [field: SerializeField] public CustomerState Buying { get; private set; }
+        [field: SerializeField] public CustomerState Shopping { get; private set; }
         [field: SerializeField] public CustomerState Bought { get; private set; }
 
 

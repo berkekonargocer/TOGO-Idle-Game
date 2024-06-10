@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace NOJUMPO
 {
-    public class CustomerShoppingState : MonoBehaviour
+    public class CustomerShoppingState : CustomerState
     {
         // -------------------------------- FIELDS ---------------------------------
 
@@ -25,7 +25,18 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
+        public override void OnEnterState() {
+            base.OnEnterState();
+            Debug.Log("EKMEEMI VER");
+        }
 
+        public override void Tick() {
+            //throw new System.NotImplementedException();
+        }
+
+        public override void FixedTick() {
+            //throw new System.NotImplementedException();
+        }
 
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
 

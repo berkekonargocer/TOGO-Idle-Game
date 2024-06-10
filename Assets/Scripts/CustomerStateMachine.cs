@@ -52,8 +52,7 @@ namespace NOJUMPO
         }
 
         public override void OnArrivedAtFrontOfQueue() {
-            //ChangeState(StateFactory.)
-            Debug.Log("EKMEEMI VER");
+            ChangeState(StateFactory.Shopping);
         }
 
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
