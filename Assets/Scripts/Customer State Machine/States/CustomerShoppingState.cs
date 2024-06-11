@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace NOJUMPO
@@ -5,10 +6,11 @@ namespace NOJUMPO
     public class CustomerShoppingState : CustomerState
     {
         // -------------------------------- FIELDS ---------------------------------
-
+        Stand shoppingStand;
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {
+            shoppingStand = GameObject.FindWithTag("Stand").GetComponent<Stand>();
         }
 
         void OnEnable() {
@@ -25,9 +27,9 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public override void OnEnterState() {
+        public override async void OnEnterState() {
             base.OnEnterState();
-            Debug.Log("EKMEEMI VER");
+            await ShopTask();
         }
 
         public override void Tick() {
@@ -42,5 +44,14 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
+        async UniTask ShopTask() {
+            while (shoppingStand.BreadStack.IsStackEmpty)
+            {
+                await UniTask.Yield();
+            }
+
+            shoppingStand.BreadStack.RemoveItem();
+            //_stateMachine.ChangeState()
+        }
     }
 }
