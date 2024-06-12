@@ -27,7 +27,8 @@ namespace NOJUMPO
             BootUpStateMachine();
         }
 
-        void Update() {
+        protected override void Update() {
+            base.Update();
             _currentState.Tick();
         }
 

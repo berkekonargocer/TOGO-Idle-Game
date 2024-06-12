@@ -22,25 +22,29 @@ namespace NOJUMPO
             SetComponents();
         }
 
-        void OnEnable() {
-        }
-
-        void OnDisable() {
-        }
-
-        void Start() {
-
-        }
-
-        void Update() {
-
+        protected virtual void Update() {
+            SetAnimationParameters();
         }
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public void MoveTo(Vector3 destination, Action<IQueueWaiter> onComplete) {
+        public void SetAgentStopDistance(float distance) {
+            _customerAgent.stoppingDistance = distance;
+        }
+
+#nullable enable
+        public void MoveTo(Vector3 destination, Action? onComplete = null, Action<IQueueWaiter>? onCompleteWaiter = null) {
+            MoveTask(destination, onComplete, onCompleteWaiter).Forget();
+        }
+
+        public void MoveTo(Vector3 destination, Action? onComplete = null) {
             MoveTask(destination, onComplete).Forget();
         }
+
+        public void MoveTo(Vector3 destination, Action<IQueueWaiter>? onCompleteWaiter = null) {
+            MoveTask(destination, onCompleteWaiter).Forget();
+        }
+#nullable disable
 
         public void LookAt(Transform target) {
             transform.LookAt(target);
@@ -58,7 +62,7 @@ namespace NOJUMPO
         }
 
         public virtual void OnArrivedAtFrontOfQueue() {
-            
+
         }
 
 
@@ -69,20 +73,26 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
-        async UniTaskVoid MoveTask(Vector3 destination, Action<IQueueWaiter> onComplete /*Vector3? lookAt = null*/) {
+        void SetAnimationParameters() {
+            animator.SetFloat("MoveX", _customerAgent.velocity.x);
+            animator.SetFloat("MoveZ", _customerAgent.velocity.z);
+        }
+
+        async UniTaskVoid MoveTask(Vector3 destination, Action onComplete = null, Action<IQueueWaiter> onCompleteWaiter = null) {
             _customerAgent.SetDestination(destination);
-            animator.SetBool("IsWalking", true);
 
-            await UniTask.WaitUntil(() => Vector3.Distance(transform.position, destination) < 0.25f);
+            await UniTask.WaitUntil(() => Vector3.Distance(transform.position, destination) < _customerAgent.stoppingDistance + 0.25f);
 
-            //if (lookAt.HasValue)
-            //{
-            //    LookAt(lookAt.Value);
-            //}
+            onComplete?.Invoke();
+            onCompleteWaiter?.Invoke(this);
+        }
 
-            onComplete?.Invoke(this);
+        async UniTaskVoid MoveTask(Vector3 destination, Action<IQueueWaiter> onCompleteWaiter = null) {
+            _customerAgent.SetDestination(destination);
 
-            animator.SetBool("IsWalking", false);
+            await UniTask.WaitUntil(() => Vector3.Distance(transform.position, destination) < _customerAgent.stoppingDistance + 0.15f);
+
+            onCompleteWaiter?.Invoke(this);
         }
 
     }

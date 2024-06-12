@@ -82,13 +82,20 @@ namespace NOJUMPO
         }
 
         void WaiterOnMoveComplete(IQueueWaiter waiter) {
-            if (waiter == _waitersList[0])
+            if (_waitersList.Count > 0 && waiter == _waitersList[0])
             {
                 waiter.OnArrivedAtFrontOfQueue();
                 return;
             }
 
-            waiter.LookAt(_waitingPositions[_waitersList.IndexOf(waiter) - 1]);
+            int waiterIndex = _waitersList.IndexOf(waiter);
+
+            if (waiterIndex <= 0)
+            {
+                return;
+            }
+
+            waiter.LookAt(_waitingPositions[waiterIndex - 1]);
         }
     }
 }

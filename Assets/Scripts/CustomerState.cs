@@ -20,16 +20,14 @@ namespace NOJUMPO
             OnEnter?.Invoke();
         }
 
-        public abstract void Tick();
-        public abstract void FixedTick();
+        public virtual void Tick() {
+        }
+
+        public virtual void FixedTick() {
+        }
 
         public virtual void OnExitState() {
             OnExit?.Invoke();
         }
-
-        // ------------------------ CUSTOM PROTECTED METHODS -----------------------
-
-
-        // ------------------------- CUSTOM PRIVATE METHODS ------------------------
     }
 }

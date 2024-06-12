@@ -1,35 +1,25 @@
+using System;
 using UnityEngine;
 
 namespace NOJUMPO
 {
-    public class CustomerShoppedState : MonoBehaviour
+    public class CustomerShoppedState : CustomerState
     {
         // -------------------------------- FIELDS ---------------------------------
-
-
-        // ------------------------- UNITY BUILT-IN METHODS ------------------------
-        void Awake() {
-        }
-
-        void OnEnable() {
-        }
-
-        void OnDisable() {
-        }
-
-        void Start() {
-        }
-
-        void Update() {
-        }
+        [SerializeField] Transform idlePlace;
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-
-
-        // ------------------------ CUSTOM PROTECTED METHODS -----------------------
+        public override void OnEnterState() {
+            base.OnEnterState();
+            _stateMachine.SetAgentStopDistance(1.5f);
+            _stateMachine.MoveTo(idlePlace.transform.position, ArrivedToIdlePlace);
+        }
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
+        void ArrivedToIdlePlace() {
+            _stateMachine.ChangeState(_stateMachine.StateFactory.Idle);
+        }
     }
 }

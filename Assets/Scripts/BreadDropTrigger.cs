@@ -30,14 +30,5 @@ namespace NOJUMPO
                 _isPlayerInRange = false;
             }
         }
-
-
-        // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-
-
-        // ------------------------ CUSTOM PROTECTED METHODS -----------------------
-
-
-        // ------------------------- CUSTOM PRIVATE METHODS ------------------------
     }
 }
