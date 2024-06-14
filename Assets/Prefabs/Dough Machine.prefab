@@ -88,7 +88,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9020ed27d0339f43b242c8f537194d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.05700004
+      value: 0.111
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9020ed27d0339f43b242c8f537194d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -96,7 +96,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9020ed27d0339f43b242c8f537194d0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.83652145
+      value: 0.8365215
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9020ed27d0339f43b242c8f537194d0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -104,7 +104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9020ed27d0339f43b242c8f537194d0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5479341
+      value: 0.5479342
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9020ed27d0339f43b242c8f537194d0, type: 3}
       propertyPath: m_LocalRotation.z
@@ -132,8 +132,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e9020ed27d0339f43b242c8f537194d0, type: 3}
       insertIndex: 0
       addedObject: {fileID: 7068789248123084364}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e9020ed27d0339f43b242c8f537194d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4768581348941109733}
   m_SourcePrefab: {fileID: 100100000, guid: e9020ed27d0339f43b242c8f537194d0, type: 3}
+--- !u!1 &4834471377260105085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e9020ed27d0339f43b242c8f537194d0, type: 3}
+  m_PrefabInstance: {fileID: 5752811737249017900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4768581348941109733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4834471377260105085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7285dd4861a7148888a9dfc82a7360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doughPrefab: {fileID: 303101624911535883, guid: b68e2002bf95d514da6e4f44e42b24b0, type: 3}
+  doughGiveInterval: 1
 --- !u!4 &5214234569134413767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e9020ed27d0339f43b242c8f537194d0, type: 3}
