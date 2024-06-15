@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace NOJUMPO
 {
@@ -6,6 +7,7 @@ namespace NOJUMPO
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] Oven oven;
+        [SerializeField] Image progressBarImage;
 
         Inventory _playerInventory;
 
@@ -15,10 +17,11 @@ namespace NOJUMPO
             if (other.CompareTag("Player"))
             {
                 _playerInventory = other.GetComponent<Inventory>();
+                progressBarImage.fillAmount = 1;
             }
         }
 
-        private void OnTriggerStay(Collider other) {
+        void OnTriggerStay(Collider other) {
             if (other.CompareTag("Player"))
             {
                 if (!oven.BreadStack.IsStackEmpty && !_playerInventory.BreadStack.IsStackFull)
@@ -26,6 +29,10 @@ namespace NOJUMPO
                     _playerInventory.AddBread(oven.BreadStack.TakeItem());
                 }
             }
+        }
+
+        void OnTriggerExit(Collider other) {
+            progressBarImage.fillAmount = 0;
         }
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------

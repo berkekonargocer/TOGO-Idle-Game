@@ -2070,6 +2070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oven: {fileID: 7070534636406355744}
+  progressBarImage: {fileID: 917763761}
 --- !u!4 &505580516 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5214234569134413767, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
@@ -2129,6 +2130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stand: {fileID: 996218043}
+  progressBarImage: {fileID: 2101496448}
 --- !u!1 &652750081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3905,6 +3907,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 56821554}
   m_SourcePrefab: {fileID: 100100000, guid: e784dce872925cc4991cb5ad5aa3c62b, type: 3}
+--- !u!114 &917763761 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2183128295461028266, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
+  m_PrefabInstance: {fileID: 7070534636406355741}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4512,6 +4525,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 276098267}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1429021213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 100038412112267194, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
+  m_PrefabInstance: {fileID: 6087823962365397062}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1429522851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7761549189500209588, guid: 7b3553876e88b074b8d2d621662ac46c, type: 3}
@@ -4621,6 +4645,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1530339316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5102177664253733680, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
+  m_PrefabInstance: {fileID: 7070534636406355741}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1542202282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1080955228332506290, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
@@ -4639,6 +4674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oven: {fileID: 7070534636406355744}
+  progressBarImage: {fileID: 1530339316}
 --- !u!1 &1581369291
 GameObject:
   m_ObjectHideFlags: 0
@@ -6489,6 +6525,17 @@ Transform:
   - {fileID: 1756622841}
   m_Father: {fileID: 276098267}
   m_LocalEulerAnglesHint: {x: 44, y: 30.581, z: 0}
+--- !u!114 &2101496448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4604042985260601282, guid: 656974602dffce5439d8eb0b6565cf5e, type: 3}
+  m_PrefabInstance: {fileID: 1928884209404812096}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &788034045648929502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6717,6 +6764,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 73.75
       objectReference: {fileID: 0}
+    - target: {fileID: 4604042985260601282, guid: 656974602dffce5439d8eb0b6565cf5e, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5502135097865291831, guid: 656974602dffce5439d8eb0b6565cf5e, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -6803,6 +6854,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 809456247}
     m_Modifications:
+    - target: {fileID: 4768581348941109733, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
+      propertyPath: progressBarImage
+      value: 
+      objectReference: {fileID: 1429021213}
     - target: {fileID: 4834471377260105085, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
       propertyPath: m_Name
       value: Dough Machine
@@ -6907,6 +6962,10 @@ PrefabInstance:
     - target: {fileID: 2914357273244083167, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
       propertyPath: m_Name
       value: Oven
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851080735883046085, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4724181320218606657, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
       propertyPath: m_LocalPosition.z

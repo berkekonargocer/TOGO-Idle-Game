@@ -26,6 +26,7 @@ namespace NOJUMPO
             if (other.CompareTag("Player"))
             {
                 _doughMachine.SetPlayerCollectRangeState(false);
+                _doughMachine.StopProgressBar();
             }
         }
     }

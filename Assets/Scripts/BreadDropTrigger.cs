@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace NOJUMPO
 {
@@ -6,6 +7,7 @@ namespace NOJUMPO
     {
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] Stand stand;
+        [SerializeField] Image progressBarImage;
 
         bool _isPlayerInRange = false;
 
@@ -15,6 +17,7 @@ namespace NOJUMPO
             if (other.CompareTag("Player"))
             {
                 _isPlayerInRange = true;
+                progressBarImage.fillAmount = 1;
                 Inventory playerInventory = other.GetComponent<Inventory>();
 
                 while (!playerInventory.BreadStack.IsStackEmpty && _isPlayerInRange)
@@ -28,6 +31,7 @@ namespace NOJUMPO
             if (other.CompareTag("Player"))
             {
                 _isPlayerInRange = false;
+                progressBarImage.fillAmount = 0;
             }
         }
     }
