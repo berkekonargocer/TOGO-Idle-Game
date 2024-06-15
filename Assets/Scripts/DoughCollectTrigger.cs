@@ -16,17 +16,15 @@ namespace NOJUMPO
         void OnTriggerEnter(Collider other) {
             if (other.CompareTag("Player"))
             {
-                _doughMachine.SetPlayerCollectRangeState(true);
                 Inventory playerInventory = other.GetComponent<Inventory>();
-                _doughMachine.GiveDoughTask(playerInventory).Forget();
+                _doughMachine.GiveDough(playerInventory);
             }
         }
 
         void OnTriggerExit(Collider other) {
             if (other.CompareTag("Player"))
             {
-                _doughMachine.SetPlayerCollectRangeState(false);
-                _doughMachine.StopProgressBar();
+                _doughMachine.StopGivingDough();
             }
         }
     }

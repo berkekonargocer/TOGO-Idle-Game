@@ -1,5 +1,7 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using System;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,27 +13,45 @@ namespace NOJUMPO
         [SerializeField] GameObject doughPrefab;
         [SerializeField] float doughGiveInterval;
         [SerializeField] Image progressBarImage;
-        public bool IsPlayerInRange { get; private set; } = false;
 
         Tween _progressBarFillAmountTween;
 
+        CancellationTokenSource _cancellationTokenSource;
+
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public void SetPlayerCollectRangeState(bool state) {
-            IsPlayerInRange = state;
+        public async UniTask GiveDoughTask(Inventory playerInventory, CancellationToken token) {
+            try
+            {
+                while (!playerInventory.DoughStack.IsStackFull)
+                {
+                    FillProgressBar();
+                    await UniTask.WaitForSeconds(doughGiveInterval, cancellationToken: token);
+                    GameObject dough = GetDough();
+                    playerInventory.AddDough(dough);
+                    progressBarImage.fillAmount = 0;
+                }
+            }
+            catch (OperationCanceledException)
+            {
+
+            }
         }
 
+        public void GiveDough(Inventory playerInventory) {
+            _cancellationTokenSource = new CancellationTokenSource();
+            GiveDoughTask(playerInventory, _cancellationTokenSource.Token).Forget();
+        }
 
-        public async UniTaskVoid GiveDoughTask(Inventory playerInventory) {
+        public void StopGivingDough() {
+            if (_cancellationTokenSource == null)
+                return;
 
-            while (IsPlayerInRange && !playerInventory.DoughStack.IsStackFull)
-            {
-                FillProgressBar();
-                await UniTask.WaitForSeconds(doughGiveInterval);
-                GameObject dough = GetDough();
-                playerInventory.AddDough(dough);
-                progressBarImage.fillAmount = 0;
-            }
+            _cancellationTokenSource.Cancel();
+            _cancellationTokenSource.Dispose();
+            _cancellationTokenSource = null;
+
+            StopProgressBar();
         }
 
         public void FillProgressBar() {
