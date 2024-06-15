@@ -13,18 +13,10 @@ namespace NOJUMPO
         [field: SerializeField] public ItemStack DoughStack { get; private set; }
         [field: SerializeField] public ItemStack BreadStack { get; private set; }
 
-        public bool PlayerInCollectRange { get; private set; } = false;
-
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Start() {
             BakeBreadTask().Forget();
-        }
-
-
-        // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public void SetPlayerCollectRangeState(bool state) {
-            PlayerInCollectRange = state;
         }
 
 
