@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace NOJUMPO
@@ -15,9 +16,11 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] Transform itemStackPosTransform;
 
-        [SerializeField] float itemStackOffset = 0.1f;
-
+        [SerializeField] TextMeshProUGUI itemAmountFractionText;
+        
         [SerializeField] StackDirection stackDirection;
+
+        [SerializeField] float itemStackOffset = 0.1f;
 
         [SerializeField] bool rotate = false;
 
@@ -56,21 +59,19 @@ namespace NOJUMPO
             }
 
             _items.Push(item);
+            itemAmountFractionText?.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
         }
 
         public GameObject TakeItem() {
             GameObject item = _items.Pop();
+            itemAmountFractionText?.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
             return item;
         }
 
         public void RemoveItem() {
             GameObject item = _items.Pop();
             GameObject.Destroy(item);
+            itemAmountFractionText?.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
         }
-
-        // ------------------------ CUSTOM PROTECTED METHODS -----------------------
-
-
-        // ------------------------- CUSTOM PRIVATE METHODS ------------------------
     }
 }
