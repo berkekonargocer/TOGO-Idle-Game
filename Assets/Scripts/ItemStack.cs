@@ -16,8 +16,10 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] Transform itemStackPosTransform;
 
-        [SerializeField] TextMeshProUGUI itemAmountFractionText;
-        
+        [SerializeField] TextMeshPro itemAmountFractionText;
+
+        [SerializeField] bool textInvisIfNoItems;
+
         [SerializeField] StackDirection stackDirection;
 
         [SerializeField] float itemStackOffset = 0.1f;
@@ -59,19 +61,53 @@ namespace NOJUMPO
             }
 
             _items.Push(item);
-            itemAmountFractionText?.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
+
+            if (itemAmountFractionText == null)
+                return;
+
+            itemAmountFractionText.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
+
+            if (!textInvisIfNoItems)
+                return;
+
+            itemAmountFractionText.alpha = 1;
         }
 
         public GameObject TakeItem() {
             GameObject item = _items.Pop();
-            itemAmountFractionText?.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
+
+            if (itemAmountFractionText != null)
+                return item;
+
+            itemAmountFractionText.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
+
+            if (!textInvisIfNoItems)
+                return item;
+
+            if (GetItemCount < 1)
+            {
+                itemAmountFractionText.alpha = 0;
+            }
+
             return item;
         }
 
         public void RemoveItem() {
             GameObject item = _items.Pop();
             GameObject.Destroy(item);
-            itemAmountFractionText?.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
+
+            if (itemAmountFractionText != null)
+                return;
+
+            itemAmountFractionText.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
+
+            if (!textInvisIfNoItems)
+                return;
+
+            if (GetItemCount < 1)
+            {
+                itemAmountFractionText.alpha = 0;
+            }
         }
     }
 }
