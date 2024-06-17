@@ -20,7 +20,7 @@ namespace NOJUMPO
                 progressBarImage.fillAmount = 1;
                 Inventory playerInventory = other.GetComponent<Inventory>();
 
-                while (!playerInventory.BreadStack.IsStackEmpty && _isPlayerInRange)
+                while (!playerInventory.BreadStack.IsStackEmpty && !stand.BreadStack.IsStackFull && _isPlayerInRange)
                 {
                     stand.BreadStack.AddItem(playerInventory.BreadStack.TakeItem());
                 }

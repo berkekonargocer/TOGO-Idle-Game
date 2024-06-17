@@ -16,11 +16,9 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] Transform itemStackPosTransform;
 
-        [SerializeField] TextMeshPro itemAmountFractionText;
-
-        [SerializeField] bool textInvisIfNoItems;
-
         [SerializeField] StackDirection stackDirection;
+
+        [SerializeField] int maxItemCount = 5;
 
         [SerializeField] float itemStackOffset = 0.1f;
 
@@ -28,40 +26,61 @@ namespace NOJUMPO
 
         [SerializeField] Vector3 rotation;
 
+        [SerializeField] TextMeshPro itemAmountFractionText;
+
+        [SerializeField] bool textInvisIfNoItems;
+
+        [SerializeField] AudioClip itemAddSFX;
+
+        [SerializeField] bool playItemAddSFX;
+
         Stack<GameObject> _items = new Stack<GameObject>();
         public int GetItemCount { get { return _items.Count; } }
-        public bool IsStackFull { get { return _items.Count >= MAX_ITEM_COUNT; } }
+        public bool IsStackFull { get { return _items.Count >= maxItemCount; } }
         public bool IsStackEmpty { get { return _items.Count <= 0; } }
 
-        const int MAX_ITEM_COUNT = 5;
+        AudioSource _audioSource;
+        
 
-
-        public ItemStack() {
-            if (itemAmountFractionText == null)
-                return;
-
-            itemAmountFractionText.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
-
-            if (textInvisIfNoItems && GetItemCount < 1)
+        public ItemStack(GameObject gameObject) {
+            if (itemAddSFX != null)
             {
-                itemAmountFractionText.alpha = 0;
+                _audioSource = gameObject.AddComponent<AudioSource>();
+            }
+
+            if (itemAmountFractionText != null)
+            {
+                itemAmountFractionText.SetText($"{GetItemCount}/{maxItemCount}");
+
+                if (textInvisIfNoItems && GetItemCount < 1)
+                {
+                    itemAmountFractionText.alpha = 0;
+                }
             }
         }
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-        public void Initialize() {
-            if (itemAmountFractionText == null)
-                return;
-
-            itemAmountFractionText.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
-
-            if (textInvisIfNoItems && GetItemCount < 1)
+        public void Initialize(GameObject gameObject) {
+            if (itemAddSFX != null)
             {
-                itemAmountFractionText.alpha = 0;
+                _audioSource = gameObject.AddComponent<AudioSource>();
+            }
+
+            if (itemAmountFractionText != null)
+            {
+                itemAmountFractionText.SetText($"{GetItemCount}/{maxItemCount}");
+
+                if (textInvisIfNoItems && GetItemCount < 1)
+                {
+                    itemAmountFractionText.alpha = 0;
+                }
             }
         }
 
         public void AddItem(GameObject item) {
+            if (IsStackFull)
+                return;
+
             item.transform.SetParent(itemStackPosTransform);
 
             if (IsStackEmpty)
@@ -86,10 +105,15 @@ namespace NOJUMPO
 
             _items.Push(item);
 
+            if (playItemAddSFX)
+            {
+                _audioSource.PlayOneShot(itemAddSFX);
+            }
+
             if (itemAmountFractionText == null)
                 return;
 
-            itemAmountFractionText.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
+            itemAmountFractionText.SetText($"{GetItemCount}/{maxItemCount}");
 
             if (!textInvisIfNoItems)
                 return;
@@ -103,7 +127,7 @@ namespace NOJUMPO
             if (itemAmountFractionText == null)
                 return item;
 
-            itemAmountFractionText.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
+            itemAmountFractionText.SetText($"{GetItemCount}/{maxItemCount}");
 
             if (!textInvisIfNoItems)
                 return item;
@@ -123,7 +147,7 @@ namespace NOJUMPO
             if (itemAmountFractionText == null)
                 return;
 
-            itemAmountFractionText.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
+            itemAmountFractionText.SetText($"{GetItemCount}/{maxItemCount}");
 
             if (!textInvisIfNoItems)
                 return;

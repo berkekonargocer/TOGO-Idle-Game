@@ -11,24 +11,24 @@ namespace NOJUMPO
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {
-            BreadStack.Initialize();
-            DoughStack.Initialize();
+            BreadStack.Initialize(gameObject);
+            DoughStack.Initialize(gameObject);
         }
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void AddDough(GameObject dough) {
-            if (!DoughStack.IsStackFull)
-            {
-                DoughStack.AddItem(dough); 
-            }
+            if (!BreadStack.IsStackEmpty)
+                return;
+
+            DoughStack.AddItem(dough);
         }
 
         public void AddBread(GameObject bread) {
-            if (!BreadStack.IsStackFull)
-            {
-                BreadStack.AddItem(bread); 
-            }
+            if (!DoughStack.IsStackEmpty)
+                return;
+
+            BreadStack.AddItem(bread);
         }
     }
 }

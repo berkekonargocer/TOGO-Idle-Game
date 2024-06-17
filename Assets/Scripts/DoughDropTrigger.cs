@@ -21,7 +21,7 @@ namespace NOJUMPO
 
                 Inventory playerInventory = other.GetComponent<Inventory>();
 
-                while (!playerInventory.DoughStack.IsStackEmpty && _isPlayerInRange) 
+                while (!playerInventory.DoughStack.IsStackEmpty && !oven.DoughStack.IsStackFull  && _isPlayerInRange) 
                 {
                     oven.DoughStack.AddItem(playerInventory.DoughStack.TakeItem());
                 }
