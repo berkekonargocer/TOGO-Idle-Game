@@ -36,7 +36,31 @@ namespace NOJUMPO
         const int MAX_ITEM_COUNT = 5;
 
 
+        public ItemStack() {
+            if (itemAmountFractionText == null)
+                return;
+
+            itemAmountFractionText.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
+
+            if (textInvisIfNoItems && GetItemCount < 1)
+            {
+                itemAmountFractionText.alpha = 0;
+            }
+        }
+
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
+        public void Initialize() {
+            if (itemAmountFractionText == null)
+                return;
+
+            itemAmountFractionText.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
+
+            if (textInvisIfNoItems && GetItemCount < 1)
+            {
+                itemAmountFractionText.alpha = 0;
+            }
+        }
+
         public void AddItem(GameObject item) {
             item.transform.SetParent(itemStackPosTransform);
 
@@ -76,7 +100,7 @@ namespace NOJUMPO
         public GameObject TakeItem() {
             GameObject item = _items.Pop();
 
-            if (itemAmountFractionText != null)
+            if (itemAmountFractionText == null)
                 return item;
 
             itemAmountFractionText.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");
@@ -96,7 +120,7 @@ namespace NOJUMPO
             GameObject item = _items.Pop();
             GameObject.Destroy(item);
 
-            if (itemAmountFractionText != null)
+            if (itemAmountFractionText == null)
                 return;
 
             itemAmountFractionText.SetText($"{GetItemCount}/{MAX_ITEM_COUNT}");

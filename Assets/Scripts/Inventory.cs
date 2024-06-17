@@ -9,6 +9,13 @@ namespace NOJUMPO
         [field: SerializeField] public ItemStack DoughStack { get; private set; }
 
 
+        // ------------------------- UNITY BUILT-IN METHODS ------------------------
+        void Awake() {
+            BreadStack.Initialize();
+            DoughStack.Initialize();
+        }
+
+
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void AddDough(GameObject dough) {
             if (!DoughStack.IsStackFull)

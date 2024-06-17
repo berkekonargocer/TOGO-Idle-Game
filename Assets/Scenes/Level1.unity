@@ -4458,6 +4458,7 @@ MonoBehaviour:
   <BreadStack>k__BackingField:
     itemStackPosTransform: {fileID: 652750082}
     itemAmountFractionText: {fileID: 0}
+    textInvisIfNoItems: 0
     stackDirection: 1
     itemStackOffset: -0.0023
     rotate: 1
@@ -7100,6 +7101,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4419202936834356591, guid: 7b3553876e88b074b8d2d621662ac46c, type: 3}
+      propertyPath: <BreadStack>k__BackingField.textInvisIfNoItems
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419202936834356591, guid: 7b3553876e88b074b8d2d621662ac46c, type: 3}
+      propertyPath: <DoughStack>k__BackingField.textInvisIfNoItems
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419202936834356591, guid: 7b3553876e88b074b8d2d621662ac46c, type: 3}
       propertyPath: <BreadStack>k__BackingField.itemAmountFractionText
       value: 
       objectReference: {fileID: 605465208}
@@ -7466,6 +7475,7 @@ MonoBehaviour:
   <DoughStack>k__BackingField:
     itemStackPosTransform: {fileID: 1501801078}
     itemAmountFractionText: {fileID: 0}
+    textInvisIfNoItems: 0
     stackDirection: 1
     itemStackOffset: 0.1
     rotate: 0
@@ -7473,6 +7483,7 @@ MonoBehaviour:
   <BreadStack>k__BackingField:
     itemStackPosTransform: {fileID: 548744263}
     itemAmountFractionText: {fileID: 0}
+    textInvisIfNoItems: 0
     stackDirection: 2
     itemStackOffset: 0.25
     rotate: 0
