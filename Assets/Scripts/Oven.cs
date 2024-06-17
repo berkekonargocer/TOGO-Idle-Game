@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace NOJUMPO
@@ -15,6 +14,11 @@ namespace NOJUMPO
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
+        void Awake() {
+            DoughStack.Initialize(gameObject);
+            BreadStack.Initialize(gameObject);
+        }
+
         void Start() {
             BakeBreadTask().Forget();
         }

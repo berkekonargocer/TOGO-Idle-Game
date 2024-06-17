@@ -7,5 +7,8 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         [field: SerializeField] public ItemStack BreadStack { get; private set; }
 
+        void Awake() {
+            BreadStack.Initialize(gameObject);
+        }
     }
 }

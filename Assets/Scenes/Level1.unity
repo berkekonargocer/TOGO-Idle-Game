@@ -322,6 +322,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  purchaseSFX: {fileID: 8300000, guid: b5f3b1d519019b849a59ecda9be6c160, type: 3}
 --- !u!114 &56821554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2731,6 +2732,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  purchaseSFX: {fileID: 8300000, guid: b5f3b1d519019b849a59ecda9be6c160, type: 3}
 --- !u!114 &755359027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4725,13 +4727,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BreadStack>k__BackingField:
     itemStackPosTransform: {fileID: 652750082}
-    itemAmountFractionText: {fileID: 1641248279}
-    textInvisIfNoItems: 0
     stackDirection: 1
     maxItemCount: 12
     itemStackOffset: -0.0023
     rotate: 1
     rotation: {x: -90, y: 0, z: -90}
+    itemAmountFractionText: {fileID: 1641248279}
+    textInvisIfNoItems: 0
+    itemAddSFX: {fileID: 8300000, guid: bf4c8e3f7c7ac624ab4853c4682812bb, type: 3}
+    playItemAddSFX: 1
 --- !u!1 &1101902433 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3975076438033950685, guid: 7b3553876e88b074b8d2d621662ac46c, type: 3}
@@ -4813,6 +4817,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  purchaseSFX: {fileID: 8300000, guid: b5f3b1d519019b849a59ecda9be6c160, type: 3}
 --- !u!114 &1110881750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5426,6 +5431,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  purchaseSFX: {fileID: 8300000, guid: b5f3b1d519019b849a59ecda9be6c160, type: 3}
 --- !u!114 &1439334932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8323,6 +8329,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4419202936834356591, guid: 7b3553876e88b074b8d2d621662ac46c, type: 3}
+      propertyPath: <BreadStack>k__BackingField.itemAddSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6278e78c6b9539c488b95663f3fa5b76, type: 3}
+    - target: {fileID: 4419202936834356591, guid: 7b3553876e88b074b8d2d621662ac46c, type: 3}
+      propertyPath: <DoughStack>k__BackingField.itemAddSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 6278e78c6b9539c488b95663f3fa5b76, type: 3}
+    - target: {fileID: 4419202936834356591, guid: 7b3553876e88b074b8d2d621662ac46c, type: 3}
+      propertyPath: <BreadStack>k__BackingField.maxItemCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419202936834356591, guid: 7b3553876e88b074b8d2d621662ac46c, type: 3}
+      propertyPath: <DoughStack>k__BackingField.maxItemCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419202936834356591, guid: 7b3553876e88b074b8d2d621662ac46c, type: 3}
+      propertyPath: <BreadStack>k__BackingField.playItemAddSFX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419202936834356591, guid: 7b3553876e88b074b8d2d621662ac46c, type: 3}
+      propertyPath: <DoughStack>k__BackingField.playItemAddSFX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419202936834356591, guid: 7b3553876e88b074b8d2d621662ac46c, type: 3}
       propertyPath: <BreadStack>k__BackingField.textInvisIfNoItems
       value: 1
       objectReference: {fileID: 0}
@@ -8709,22 +8739,26 @@ MonoBehaviour:
   breadBakeInterval: 1
   <DoughStack>k__BackingField:
     itemStackPosTransform: {fileID: 1501801078}
-    itemAmountFractionText: {fileID: 2052664894}
-    textInvisIfNoItems: 0
     stackDirection: 1
     maxItemCount: 5
     itemStackOffset: 0.1
     rotate: 0
     rotation: {x: 0, y: 0, z: 0}
+    itemAmountFractionText: {fileID: 2052664894}
+    textInvisIfNoItems: 0
+    itemAddSFX: {fileID: 8300000, guid: 18f01aa37b252324eb3844dafa9b9bee, type: 3}
+    playItemAddSFX: 1
   <BreadStack>k__BackingField:
     itemStackPosTransform: {fileID: 548744263}
-    itemAmountFractionText: {fileID: 1428959979}
-    textInvisIfNoItems: 0
     stackDirection: 2
     maxItemCount: 5
     itemStackOffset: 0.25
     rotate: 0
     rotation: {x: 0, y: 0, z: 0}
+    itemAmountFractionText: {fileID: 1428959979}
+    textInvisIfNoItems: 0
+    itemAddSFX: {fileID: 8300000, guid: 9131bcdba35c26c49996f9a6312581b1, type: 3}
+    playItemAddSFX: 1
 --- !u!1001 &7211772244020536302
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ namespace NOJUMPO
 
         [SerializeField] AudioClip itemAddSFX;
 
-        [SerializeField] bool playItemAddSFX;
+        [SerializeField] bool playItemAddSFX = true;
 
         Stack<GameObject> _items = new Stack<GameObject>();
         public int GetItemCount { get { return _items.Count; } }
@@ -41,23 +41,6 @@ namespace NOJUMPO
 
         AudioSource _audioSource;
         
-
-        public ItemStack(GameObject gameObject) {
-            if (itemAddSFX != null)
-            {
-                _audioSource = gameObject.AddComponent<AudioSource>();
-            }
-
-            if (itemAmountFractionText != null)
-            {
-                itemAmountFractionText.SetText($"{GetItemCount}/{maxItemCount}");
-
-                if (textInvisIfNoItems && GetItemCount < 1)
-                {
-                    itemAmountFractionText.alpha = 0;
-                }
-            }
-        }
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
         public void Initialize(GameObject gameObject) {

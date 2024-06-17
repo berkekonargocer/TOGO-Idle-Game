@@ -23,7 +23,7 @@ namespace NOJUMPO
         public async UniTask GiveDoughTask(Inventory playerInventory, CancellationToken token) {
             try
             {
-                while (!playerInventory.DoughStack.IsStackFull)
+                while (!playerInventory.DoughStack.IsStackFull && playerInventory.BreadStack.IsStackEmpty)
                 {
                     FillProgressBar();
                     await UniTask.WaitForSeconds(doughGiveInterval, cancellationToken: token);
