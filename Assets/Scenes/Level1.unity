@@ -1992,6 +1992,75 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1439334934}
   m_SourcePrefab: {fileID: 100100000, guid: e784dce872925cc4991cb5ad5aa3c62b, type: 3}
+--- !u!1 &243146405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243146406}
+  - component: {fileID: 243146408}
+  - component: {fileID: 243146407}
+  m_Layer: 0
+  m_Name: Bank
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &243146406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243146405}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &243146407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243146405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc51d21aca2ea6f47b0684af683f85dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberText: {fileID: 800326363}
+  countFPS: 30
+  duration: 1
+  playScaleAnimation: 1
+  prefixText: 
+  suffixText: $
+  numberTextColorCode: green
+  prefixTextColorCode: green
+  suffixTextColorCode: green
+  initialValue: 0
+--- !u!114 &243146408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243146405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21cfa23b3f1d4c418ecd93c2b27ba82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlayerAccount>k__BackingField:
+    moneyAmount: {fileID: 243146407}
 --- !u!1 &276098266
 GameObject:
   m_ObjectHideFlags: 0
@@ -6642,7 +6711,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1717198343}
   - component: {fileID: 1717198342}
-  - component: {fileID: 1717198344}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -6669,7 +6737,6 @@ MonoBehaviour:
     - {x: 135.25, y: 0, z: 24.25}
     - {x: 135.25, y: 0, z: 23.25}
     - {x: 135.25, y: 0, z: 22.25}
-  moneyAmount: {fileID: 1717198344}
 --- !u!4 &1717198343
 Transform:
   m_ObjectHideFlags: 0
@@ -6685,28 +6752,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1717198344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717198341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc51d21aca2ea6f47b0684af683f85dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _numberText: {fileID: 800326363}
-  countFPS: 30
-  duration: 1
-  playScaleAnimation: 1
-  prefixText: 
-  suffixText: $
-  numberTextColorCode: green
-  prefixTextColorCode: green
-  suffixTextColorCode: green
-  initialValue: 0
 --- !u!1 &1745671292
 GameObject:
   m_ObjectHideFlags: 0
@@ -10963,6 +11008,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 41779103}
   - {fileID: 1717198343}
+  - {fileID: 243146406}
   - {fileID: 1519558721}
   - {fileID: 554706720}
   - {fileID: 276098267}

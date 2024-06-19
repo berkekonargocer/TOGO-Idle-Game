@@ -38,7 +38,7 @@ namespace NOJUMPO
             shoppingStand.BreadStack.RemoveItem();
             GameManager.Instance.BreadCustomerQueue.RemoveFirst();
             _audioSource.PlayOneShot(purchaseSFX);
-            GameManager.Instance.AddMoney(50);
+            Bank.Instance.PlayerAccount.AddMoney(50);
             _stateMachine.ChangeState(_stateMachine.StateFactory.Shopped);
         }
     }

@@ -2,36 +2,18 @@ using UnityEngine;
 
 namespace NOJUMPO
 {
-    public class GameManager : MonoBehaviour
+    public class Bank : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
-        public static GameManager Instance;
-        public WaitingQueue BreadCustomerQueue = new WaitingQueue();
+        public static Bank Instance;
+
+        [field: SerializeField] public BankAccount PlayerAccount { get; private set; }
 
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {
             InitializeSingleton();
         }
-
-        void OnEnable() {
-        }
-
-        void OnDisable() {
-        }
-
-        void Start() {
-        }
-
-        void Update() {
-        }
-
-
-        // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-
-        
-
-        // ------------------------ CUSTOM PROTECTED METHODS -----------------------
 
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
