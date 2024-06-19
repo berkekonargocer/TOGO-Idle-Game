@@ -8,7 +8,6 @@ namespace NOJUMPO
     public class CustomerShoppingState : CustomerState
     {
         // -------------------------------- FIELDS ---------------------------------
-        [SerializeField] CountingFloat moneyAmountUI;
         [SerializeField] AudioClip purchaseSFX;
 
         AudioSource _audioSource;
@@ -39,7 +38,7 @@ namespace NOJUMPO
             shoppingStand.BreadStack.RemoveItem();
             GameManager.Instance.BreadCustomerQueue.RemoveFirst();
             _audioSource.PlayOneShot(purchaseSFX);
-            moneyAmountUI.AddValue(50);
+            GameManager.Instance.AddMoney(50);
             _stateMachine.ChangeState(_stateMachine.StateFactory.Shopped);
         }
     }

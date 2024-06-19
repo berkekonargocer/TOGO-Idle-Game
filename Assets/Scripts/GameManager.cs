@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace NOJUMPO
@@ -7,6 +8,9 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         public static GameManager Instance;
         public WaitingQueue BreadCustomerQueue = new WaitingQueue();
+
+        [SerializeField] CountingFloat moneyAmount;
+
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {
@@ -27,7 +31,10 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
-
+        public void AddMoney(float addAmount) {
+            moneyAmount.AddValue(addAmount);
+        }
+        
 
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
 

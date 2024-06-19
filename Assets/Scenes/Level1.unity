@@ -322,7 +322,6 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
-  moneyAmountUI: {fileID: 800326365}
   purchaseSFX: {fileID: 8300000, guid: b5f3b1d519019b849a59ecda9be6c160, type: 3}
 --- !u!114 &56821554
 MonoBehaviour:
@@ -2948,7 +2947,6 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
-  moneyAmountUI: {fileID: 800326365}
   purchaseSFX: {fileID: 8300000, guid: b5f3b1d519019b849a59ecda9be6c160, type: 3}
 --- !u!114 &755359027
 MonoBehaviour:
@@ -3076,7 +3074,6 @@ GameObject:
   - component: {fileID: 800326362}
   - component: {fileID: 800326364}
   - component: {fileID: 800326363}
-  - component: {fileID: 800326365}
   m_Layer: 0
   m_Name: Money Amount Text
   m_TagString: Untagged
@@ -3200,27 +3197,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800326361}
   m_CullTransparentMesh: 1
---- !u!114 &800326365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800326361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc51d21aca2ea6f47b0684af683f85dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countFPS: 30
-  duration: 1
-  playScaleAnimation: 1
-  prefixText: 
-  suffixText: $
-  numberTextColorCode: green
-  prefixTextColorCode: green
-  suffixTextColorCode: green
-  initialValue: 0
 --- !u!1 &809456246
 GameObject:
   m_ObjectHideFlags: 0
@@ -5289,7 +5265,6 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
-  moneyAmountUI: {fileID: 800326365}
   purchaseSFX: {fileID: 8300000, guid: b5f3b1d519019b849a59ecda9be6c160, type: 3}
 --- !u!114 &1110881750
 MonoBehaviour:
@@ -6001,7 +5976,6 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
-  moneyAmountUI: {fileID: 800326365}
   purchaseSFX: {fileID: 8300000, guid: b5f3b1d519019b849a59ecda9be6c160, type: 3}
 --- !u!114 &1439334932
 MonoBehaviour:
@@ -6668,6 +6642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717198343}
   - component: {fileID: 1717198342}
+  - component: {fileID: 1717198344}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -6694,6 +6669,7 @@ MonoBehaviour:
     - {x: 135.25, y: 0, z: 24.25}
     - {x: 135.25, y: 0, z: 23.25}
     - {x: 135.25, y: 0, z: 22.25}
+  moneyAmount: {fileID: 1717198344}
 --- !u!4 &1717198343
 Transform:
   m_ObjectHideFlags: 0
@@ -6709,6 +6685,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1717198344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717198341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc51d21aca2ea6f47b0684af683f85dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numberText: {fileID: 800326363}
+  countFPS: 30
+  duration: 1
+  playScaleAnimation: 1
+  prefixText: 
+  suffixText: $
+  numberTextColorCode: green
+  prefixTextColorCode: green
+  suffixTextColorCode: green
+  initialValue: 0
 --- !u!1 &1745671292
 GameObject:
   m_ObjectHideFlags: 0
