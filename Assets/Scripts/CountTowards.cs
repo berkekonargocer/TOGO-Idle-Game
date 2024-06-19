@@ -13,7 +13,13 @@ namespace NOJUMPO
 
         [SerializeField] protected bool playScaleAnimation = false;
 
+        [SerializeField] protected string prefixText;
+
+        [SerializeField] protected string suffixText;
+
         [SerializeField] protected string numberTextColorCode = "white";
+        [SerializeField] protected string prefixTextColorCode = "white";
+        [SerializeField] protected string suffixTextColorCode = "white";
 
         protected TextMeshProUGUI _numberText;
         protected Coroutine _countCoroutine;
