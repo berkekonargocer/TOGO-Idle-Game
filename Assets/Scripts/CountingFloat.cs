@@ -7,11 +7,30 @@ namespace NOJUMPO
     public class CountingFloat : CountTowards
     {
         // -------------------------------- FIELDS ---------------------------------
-        public float Value { get { return _value; } set { UpdateText(value); _value = value; } }
+        [SerializeField] float initialValue = 0;
+
+        public float Value { get { return _value; } private set { UpdateText(value); _value = value; } }
         float _value;
 
 
+        // ------------------------- UNITY BUILT-IN METHODS ------------------------
+        protected override void Awake() {
+            base.Awake();
+            _value = initialValue;
+        }
+
+
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
+        public void SetValue(float newValue) {
+            Value = newValue;
+        }
+
+        public void AddValue(float addAmount) {
+            Value += addAmount;
+        }
+
+
+        // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void UpdateText(float newValue) {
             if (_countCoroutine != null)
             {
@@ -26,8 +45,6 @@ namespace NOJUMPO
             _countCoroutine = StartCoroutine(Count(newValue));
         }
 
-
-        // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void ScaleUpAndDownAnim() {
             transform.DOScale(1.2f, 0.25f).OnComplete(() => transform.DOScale(1.0f, 0.25f)).SetEase(Ease.InOutSine);
         }

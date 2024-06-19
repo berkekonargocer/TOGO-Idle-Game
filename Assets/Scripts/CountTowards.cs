@@ -14,7 +14,6 @@ namespace NOJUMPO
         [SerializeField] protected bool playScaleAnimation = false;
 
         [SerializeField] protected string prefixText;
-
         [SerializeField] protected string suffixText;
 
         [SerializeField] protected string numberTextColorCode = "white";

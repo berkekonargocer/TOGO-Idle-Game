@@ -322,6 +322,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  moneyAmountUI: {fileID: 800326365}
   purchaseSFX: {fileID: 8300000, guid: b5f3b1d519019b849a59ecda9be6c160, type: 3}
 --- !u!114 &56821554
 MonoBehaviour:
@@ -2947,6 +2948,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  moneyAmountUI: {fileID: 800326365}
   purchaseSFX: {fileID: 8300000, guid: b5f3b1d519019b849a59ecda9be6c160, type: 3}
 --- !u!114 &755359027
 MonoBehaviour:
@@ -3074,6 +3076,7 @@ GameObject:
   - component: {fileID: 800326362}
   - component: {fileID: 800326364}
   - component: {fileID: 800326363}
+  - component: {fileID: 800326365}
   m_Layer: 0
   m_Name: Money Amount Text
   m_TagString: Untagged
@@ -3197,6 +3200,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800326361}
   m_CullTransparentMesh: 1
+--- !u!114 &800326365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800326361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc51d21aca2ea6f47b0684af683f85dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countFPS: 30
+  duration: 1
+  playScaleAnimation: 1
+  prefixText: 
+  suffixText: $
+  numberTextColorCode: green
+  prefixTextColorCode: green
+  suffixTextColorCode: green
+  initialValue: 0
 --- !u!1 &809456246
 GameObject:
   m_ObjectHideFlags: 0
@@ -5265,6 +5289,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  moneyAmountUI: {fileID: 800326365}
   purchaseSFX: {fileID: 8300000, guid: b5f3b1d519019b849a59ecda9be6c160, type: 3}
 --- !u!114 &1110881750
 MonoBehaviour:
@@ -5976,6 +6001,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  moneyAmountUI: {fileID: 800326365}
   purchaseSFX: {fileID: 8300000, guid: b5f3b1d519019b849a59ecda9be6c160, type: 3}
 --- !u!114 &1439334932
 MonoBehaviour:
