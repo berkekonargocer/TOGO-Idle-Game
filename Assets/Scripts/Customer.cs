@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using System;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
@@ -88,11 +89,22 @@ namespace NOJUMPO
         }
 
         async UniTaskVoid MoveTask(Vector3 destination, Action<IQueueWaiter> onCompleteWaiter = null) {
-            _customerAgent.SetDestination(destination);
 
-            await UniTask.WaitUntil(() => Vector3.Distance(transform.position, destination) < _customerAgent.stoppingDistance + 0.15f);
+            CancellationToken cancellationToken = this.GetCancellationTokenOnDestroy();
 
-            onCompleteWaiter?.Invoke(this);
+            try
+            {
+                _customerAgent.SetDestination(destination);
+
+                await UniTask.WaitUntil(() => Vector3.Distance(transform.position, destination) < _customerAgent.stoppingDistance + 0.15f,
+                    cancellationToken: cancellationToken);
+
+                onCompleteWaiter.Invoke(this);
+            }
+            catch (OperationCanceledException)
+            {
+
+            }
         }
 
     }
