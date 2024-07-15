@@ -2,7 +2,6 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using System;
 using System.Threading;
-using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -106,6 +105,5 @@ namespace NOJUMPO
 
             }
         }
-
     }
 }
