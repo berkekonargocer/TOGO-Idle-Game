@@ -11,6 +11,12 @@ namespace NOJUMPO
         [Space]
         [SerializeField] string stateName = "";
 
+
+        [SerializeField] AudioClip[] footstepAudios;
+        int lastPlayedFootstepAudioIndex;
+
+        AudioSource _audioSource;
+
         public CustomerStateFactory StateFactory { get; private set; }
 
         CustomerState _currentState;
@@ -60,6 +66,7 @@ namespace NOJUMPO
         protected override void SetComponents() {
             base.SetComponents();
             StateFactory = GetComponentInChildren<CustomerStateFactory>();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         protected virtual void InitializeStates() {
@@ -70,6 +77,17 @@ namespace NOJUMPO
             stateName = _currentState.GetType().ToString();
         }
 
+        protected void PlayFootstepSound() {
+            int randomNumber = Random.Range(0, footstepAudios.Length); ;
+
+            while (randomNumber == lastPlayedFootstepAudioIndex)
+            {
+                randomNumber = Random.Range(0, footstepAudios.Length);
+            }
+
+            _audioSource.PlayOneShot(footstepAudios[randomNumber]);
+            lastPlayedFootstepAudioIndex = randomNumber;
+        }
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         void BootUpStateMachine() {
