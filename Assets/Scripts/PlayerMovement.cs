@@ -6,23 +6,19 @@ namespace NOJUMPO
     public class PlayerMovement : MonoBehaviour
     {
         // -------------------------------- FIELDS ---------------------------------
+        [SerializeField] AudioClip[] footstepAudios;
+
         SplineAnimate _splineAnimate;
+        AudioSource _audioSource;
         Animator _animator;
+
+        int lastPlayedFootstepIndex;
 
         // ------------------------- UNITY BUILT-IN METHODS ------------------------
         void Awake() {
             _splineAnimate = GetComponent<SplineAnimate>();
+            _audioSource = GetComponent<AudioSource>();
             _animator = GetComponent<Animator>();
-        }
-
-        void OnEnable() {
-        }
-
-        void OnDisable() {
-        }
-
-        void Start() {
-
         }
 
         void Update() {
@@ -32,7 +28,17 @@ namespace NOJUMPO
 
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
+        void PlayFootstepSound() {
+            int randomNumber = Random.Range(0, footstepAudios.Length); ;
 
+            while (randomNumber == lastPlayedFootstepIndex) 
+            {
+                randomNumber = Random.Range(0, footstepAudios.Length);
+            }
+
+            _audioSource.PlayOneShot(footstepAudios[randomNumber]);
+            lastPlayedFootstepIndex = randomNumber;
+        }
 
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
 
