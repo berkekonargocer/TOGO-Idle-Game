@@ -84,7 +84,8 @@ namespace NOJUMPO
                 4 => "Thanks!",
                 5 => "Take care!",
                 6 => "Thank you! Bye!",
-                7 => "Have a good day!"
+                7 => "Have a good day!",
+                _ => "This place is so good!"
             };
 
             return text;
