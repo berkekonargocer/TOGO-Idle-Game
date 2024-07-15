@@ -8,6 +8,7 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] Stand stand;
         [SerializeField] Image progressBarImage;
+        [SerializeField] Light dropPointLight;
 
         bool _isPlayerInRange = false;
 
@@ -17,6 +18,7 @@ namespace NOJUMPO
             if (other.CompareTag("Player"))
             {
                 _isPlayerInRange = true;
+                dropPointLight.color = Color.green;
                 progressBarImage.fillAmount = 1;
                 Inventory playerInventory = other.GetComponent<Inventory>();
 
@@ -31,6 +33,7 @@ namespace NOJUMPO
             if (other.CompareTag("Player"))
             {
                 _isPlayerInRange = false;
+                dropPointLight.color = Color.yellow;
                 progressBarImage.fillAmount = 0;
             }
         }

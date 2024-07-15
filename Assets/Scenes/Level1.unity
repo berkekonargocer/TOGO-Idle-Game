@@ -1131,6 +1131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oven: {fileID: 7070534636406355744}
   progressBarImage: {fileID: 917763761}
+  collectPointLight: {fileID: 676880436}
 --- !u!4 &505580516 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5214234569134413767, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
@@ -1560,6 +1561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stand: {fileID: 996218043}
   progressBarImage: {fileID: 2101496448}
+  dropPointLight: {fileID: 2011800848}
 --- !u!1 &652750081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,6 +1621,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!108 &676880436 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 985577418380168427, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
+  m_PrefabInstance: {fileID: 7070534636406355741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &682828088
 GameObject:
   m_ObjectHideFlags: 0
@@ -3028,6 +3035,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!108 &1157431256 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 1333653219047754491, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
+  m_PrefabInstance: {fileID: 6087823962365397062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1223907801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3819,6 +3831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oven: {fileID: 7070534636406355744}
   progressBarImage: {fileID: 1530339316}
+  dropPointLight: {fileID: 1747748002}
 --- !u!1 &1581369291
 GameObject:
   m_ObjectHideFlags: 0
@@ -18092,6 +18105,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!108 &1747748002 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 6138385827089868401, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
+  m_PrefabInstance: {fileID: 7070534636406355741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1756622840
 GameObject:
   m_ObjectHideFlags: 3
@@ -18835,6 +18853,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!108 &2011800848 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 3172124431655568003, guid: 656974602dffce5439d8eb0b6565cf5e, type: 3}
+  m_PrefabInstance: {fileID: 1928884209404812096}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2052664892
 GameObject:
   m_ObjectHideFlags: 0
@@ -27607,6 +27630,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bread Drop Trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 3172124431655568003, guid: 656974602dffce5439d8eb0b6565cf5e, type: 3}
+      propertyPath: m_Color.b
+      value: 0.015686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172124431655568003, guid: 656974602dffce5439d8eb0b6565cf5e, type: 3}
+      propertyPath: m_Color.g
+      value: 0.92156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 3172124431655568003, guid: 656974602dffce5439d8eb0b6565cf5e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4081918087773460659, guid: 656974602dffce5439d8eb0b6565cf5e, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.0032000004
@@ -27739,6 +27774,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 809456247}
     m_Modifications:
+    - target: {fileID: 1333653219047754491, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.015686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333653219047754491, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.92156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333653219047754491, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1762634686183132858, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -27871,6 +27918,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6408237997586563355, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
+      propertyPath: collectPointLight
+      value: 
+      objectReference: {fileID: 1157431256}
     - target: {fileID: 8276545654717055055, guid: 03671d5a2b6853b42a585a0323f5954b, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -27897,6 +27948,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 809456247}
     m_Modifications:
+    - target: {fileID: 985577418380168427, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.015686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 985577418380168427, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
+      propertyPath: m_Color.g
+      value: 0.92156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 985577418380168427, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1805167135956391643, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.0032
@@ -27952,6 +28015,18 @@ PrefabInstance:
     - target: {fileID: 4724181320218606657, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.0032
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138385827089868401, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.015686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138385827089868401, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
+      propertyPath: m_Color.g
+      value: 0.92156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138385827089868401, guid: 444969bce0f8f1244a5f8eb097ca5fe6, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

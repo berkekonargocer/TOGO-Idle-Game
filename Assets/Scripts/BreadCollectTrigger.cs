@@ -8,6 +8,7 @@ namespace NOJUMPO
         // -------------------------------- FIELDS ---------------------------------
         [SerializeField] Oven oven;
         [SerializeField] Image progressBarImage;
+        [SerializeField] Light collectPointLight;
 
         Inventory _playerInventory;
 
@@ -16,6 +17,7 @@ namespace NOJUMPO
         void OnTriggerEnter(Collider other) {
             if (other.CompareTag("Player"))
             {
+                collectPointLight.color = Color.green;
                 _playerInventory = other.GetComponent<Inventory>();
                 progressBarImage.fillAmount = 1;
             }
@@ -33,6 +35,7 @@ namespace NOJUMPO
 
         void OnTriggerExit(Collider other) {
             progressBarImage.fillAmount = 0;
+            collectPointLight.color = Color.yellow;
         }
 
         // ------------------------- CUSTOM PUBLIC METHODS -------------------------
