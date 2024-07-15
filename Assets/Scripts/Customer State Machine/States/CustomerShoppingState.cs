@@ -30,6 +30,8 @@ namespace NOJUMPO
 
         // ------------------------- CUSTOM PRIVATE METHODS ------------------------
         async UniTask ShopTask() {
+            int randomAmount = Random.Range(1, 4);
+
             while (shoppingStand.BreadStack.IsStackEmpty)
             {
                 await UniTask.Yield();
@@ -37,7 +39,6 @@ namespace NOJUMPO
 
             await UniTask.WaitForSeconds(2);
 
-            int randomAmount = Random.Range(1, 4);
 
             while (shoppingStand.BreadStack.GetItemCount < randomAmount)
             {
