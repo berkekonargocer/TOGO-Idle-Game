@@ -44,8 +44,8 @@ namespace NOJUMPO
         }
 
         void LeaveFromQueue() {
-            GameManager.Instance.BreadCustomerQueue.RemoveFirst();
             _stateMachine.ChangeState(_stateMachine.StateFactory.Shopped);
+            GameManager.Instance.BreadCustomerQueue.RemoveFirst();
         }
 
         void ActivateChatBubble(bool activate = true) {
@@ -103,22 +103,16 @@ namespace NOJUMPO
             SetChatBubbleText(GetRandomGreetText(randomAmount));
             ActivateChatBubble();
 
-            while (shoppingStand.BreadStack.IsStackEmpty)
+            while (shoppingStand.BreadStack.GetItemCount < randomAmount)
             {
                 await UniTask.Yield();
             }
 
             await UniTask.WaitForSeconds(2);
 
-            while (shoppingStand.BreadStack.GetItemCount < randomAmount)
-            {
-                await UniTask.Yield();
-            }
-
             PurchaseBread(randomAmount);
 
             SetChatBubbleText(GetRandomLeaveText());
-
             StartCoroutine(DeactivateChatBubbleAfterDelay(2.5f));
 
             LeaveFromQueue();

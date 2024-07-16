@@ -62,6 +62,7 @@ namespace NOJUMPO
             ChangeState(StateFactory.Shopping);
         }
 
+
         // ------------------------ CUSTOM PROTECTED METHODS -----------------------
         protected override void SetComponents() {
             base.SetComponents();
